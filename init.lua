@@ -21,9 +21,9 @@ require('lazy').setup({
   require 'plugins.avante',
   require 'plugins.treesitter',
   require 'plugins.telescope',
-  -- require 'plugins.lsp', -- Mason will not work on NixOS
+  require 'plugins.lsp',
   require 'plugins.autocompletion',
-  -- require 'plugins.none-ls', -- Mason will not work on NixOS
+  require 'plugins.none-ls',
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.misc',
