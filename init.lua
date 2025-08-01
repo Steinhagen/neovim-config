@@ -28,6 +28,7 @@ require('lazy').setup {
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.remote-sshfs',
+  require 'plugins.conform',
   require 'plugins.visual-whitespace',
   require 'plugins.misc',
 }
