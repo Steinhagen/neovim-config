@@ -118,9 +118,20 @@ return {
       -- that will be available in all sources (if not overridden in `opts[source_name].commands`)
       -- see `:h neo-tree-custom-commands-global`
       commands = {},
+      event_handlers = {
+        {
+          event = 'neo_tree_buffer_enter',
+          handler = function(arg)
+            vim.cmd [[
+              setlocal number
+              setlocal relativenumber
+            ]]
+          end,
+        },
+      },
       window = {
         position = 'left',
-        width = 30,
+        width = 32,
         mapping_options = {
           noremap = true,
           nowait = true,
