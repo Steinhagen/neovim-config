@@ -8,9 +8,8 @@ return {
   ---@module 'avante'
   ---@type avante.Config
   opts = {
-    -- add any opts here
-    -- for example
-    provider = 'ollama',
+    -- "claude" | "openai" | "azure" | "gemini" | "ollama" | "copilot" | "moonshot"
+    provider = 'gemini',
     providers = {
       claude = {
         endpoint = 'https://api.anthropic.com',
