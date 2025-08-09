@@ -31,5 +31,6 @@ require('lazy').setup {
   require 'plugins.conform',
   require 'plugins.toggleterm',
   require 'plugins.visual-whitespace',
+  require 'plugins.tiny-inline-diagnostic',
   require 'plugins.misc',
 }
