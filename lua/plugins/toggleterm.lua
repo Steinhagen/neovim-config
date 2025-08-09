@@ -9,6 +9,5 @@ return {
         border = 'curved',
       },
     }
-    vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n><cmd>q<cr>') -- Enter Normal mode
   end,
 }
