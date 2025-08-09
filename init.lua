@@ -21,7 +21,7 @@ require('lazy').setup {
   require 'plugins.avante',
   require 'plugins.treesitter',
   require 'plugins.gitsigns',
-  require 'plugins.telescope',
+  require 'plugins.my-telescope',
   require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.none-ls',
