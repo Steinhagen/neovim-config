@@ -33,5 +33,6 @@ require('lazy').setup {
   require 'plugins.visual-whitespace',
   require 'plugins.tiny-inline-diagnostic',
   require 'plugins.render-markdown',
+  require 'plugins.sessions',
   require 'plugins.misc',
 }
