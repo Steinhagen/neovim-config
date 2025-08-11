@@ -19,23 +19,12 @@ cp -r lua/ .stylua.toml init.lua $NVIM_CONFIG
 If you are using a non-NixOS distribution, make sure you uncomment the Mason configuration to get all LSP's on your machine:
 
 ```lua ./lua/plugins/lsp.lua
-  -- Automatically install LSPs and related tools to stdpath for Neovim
   { 'mason-org/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-  -- mason-lspconfig:
-  -- - Bridges the gap between LSP config names (e.g. "lua_ls") and actual Mason package names (e.g. "lua-language-server").
-  -- - Used here only to allow specifying language servers by their LSP name (like "lua_ls") in `ensure_installed`.
-  -- - It does not auto-configure servers — we use vim.lsp.config() + vim.lsp.enable() explicitly for full control.
   'mason-org/mason-lspconfig.nvim',
-  -- mason-tool-installer:
-  -- - Installs LSPs, linters, formatters, etc. by their Mason package name.
-  -- - We use it to ensure all desired tools are present.
-  -- - The `ensure_installed` list works with mason-lspconfig to resolve LSP names like "lua_ls".
   'WhoIsSethDaniel/mason-tool-installer.nvim',
 ```
 
 ```lua ./lua/plugins/lsp.lua
------------------------------------------------------------
-    -- Ensure the servers and tools above are installed
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
@@ -48,7 +37,6 @@ If you are using a non-NixOS distribution, make sure you uncomment the Mason con
     'jayp0521/mason-null-ls.nvim', -- ensure dependencies are installed
   },
   config = function()
-    -- Formatters & linters for mason to install
     require('mason-null-ls').setup {
       ensure_installed = {
         'prettier', -- ts/js formatter
