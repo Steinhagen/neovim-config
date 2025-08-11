@@ -33,7 +33,13 @@ return {
     require('remote-sshfs').setup {
       connections = {
         ssh_configs = {
-          vim.fn.expand '~' .. '/.ssh/config',
+          vim.fn.expand '$HOME' .. '/.ssh/config',
+        },
+        ssh_known_hosts = vim.fn.expand '$HOME' .. '/.ssh/known_hosts',
+        ui = {
+          confirm = {
+            connect = false,
+          },
         },
       },
     }
