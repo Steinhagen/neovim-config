@@ -133,7 +133,14 @@ return {
     local servers = {
       ansiblels = {},
       bashls = {},
-      clangd = {},
+      clangd = {
+        cmd = {
+          'clangd',
+          '--background-index',
+          '--query-driver',
+          '$(whereis gcc | cut -d " " -f 2)',
+        },
+      },
       cssls = {},
       dockerls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
