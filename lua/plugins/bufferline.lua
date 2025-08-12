@@ -11,8 +11,8 @@ return {
         themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
         numbers = 'none', -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
         close_command = 'Bdelete! %d', -- can be a string | function, see "Mouse actions"
-        buffer_close_icon = '✗',
-        close_icon = '✗',
+        buffer_close_icon = '×',
+        close_icon = '×',
         path_components = 1, -- Show only the file name without the directory
         modified_icon = '●',
         left_trunc_marker = '',
@@ -40,6 +40,15 @@ return {
         maximum_padding = 5,
         maximum_length = 15,
         sort_by = 'insert_at_end',
+        offsets = {
+          {
+            filetype = 'neo-tree',
+            text = 'File Explorer',
+            padding = 0,
+            text_align = 'center',
+            highlight = 'Offset',
+          },
+        },
       },
       highlights = {
         separator = {
