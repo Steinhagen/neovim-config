@@ -10,6 +10,10 @@ return {
     -- "claude" | "openai" | "azure" | "gemini" | "ollama" | "copilot" | "moonshot"
     provider = 'gemini',
     providers = {
+      gemini = {
+        __inherited_from = 'gemini',
+        model = 'gemini-2.5-flash',
+      },
       claude = {
         endpoint = 'https://api.anthropic.com',
         model = 'claude-sonnet-4-20250514',
@@ -75,4 +79,14 @@ return {
       ft = { 'markdown', 'Avante' },
     },
   },
+  config = function()
+    require('avante').setup()
+    -- Nord themed highlights for Avante
+    vim.api.nvim_set_hl(0, 'AvanteTitle', { fg = '#8FBCBB', bg = '#3B4252', bold = true })
+    vim.api.nvim_set_hl(0, 'AvanteReversedTitle', { fg = '#3B4252', bg = '#3B4252' })
+    vim.api.nvim_set_hl(0, 'AvanteSubtitle', { fg = '#D08770', bg = '#3B4252', bold = true })
+    vim.api.nvim_set_hl(0, 'AvanteReversedSubtitle', { fg = '#3B4252', bg = '#3B4252' })
+    vim.api.nvim_set_hl(0, 'AvanteThirdTitle', { fg = '#B48EAD', bg = '#3B4252', bold = true })
+    vim.api.nvim_set_hl(0, 'AvanteReversedThirdTitle', { fg = '#3B4252', bg = '#3B4252' })
+  end,
 }
