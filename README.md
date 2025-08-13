@@ -2,7 +2,7 @@
 
 This repository contains my personal Neovim configuration intented to be usually deployed in a NixOS environment.
 
-![Neovim](https://drive.usercontent.google.com/download?id=1Wn5ilSAT3UErwV8yGUuYdzYMJNSgdmd9)
+![Neovim](https://drive.usercontent.google.com/download?id=1Or0eW4NDjV0X_eWtnEAl29gn3qXILiwz)
 
 ## How to use
 
