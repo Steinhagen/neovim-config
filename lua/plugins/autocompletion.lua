@@ -30,7 +30,11 @@ return { -- Autocompletion
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
-    'hrsh7th/cmp-nvim-lsp',
+    {
+      'vicnotor/cmp-nvim-lsp',
+      branch = 'client.is_stopped-deprecated',
+    },
+    -- 'hrsh7th/cmp-nvim-lsp', -- client.is_stopped is deprecated
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
   },
