@@ -119,6 +119,7 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 - [remote-sshfs.lua](./lua/plugins/remote-sshfs.lua): Adds support for remote development using sshfs.
 - [render-markdown.lua](./lua/plugins/render-markdown.lua): Plugin to improve viewing Markdown files in Neovim.
 - [toggleterm.lua](./lua/plugins/toggleterm.lua): Configures Terminal plugin.
+- [neovim-tips.lua](./lua/plugins/neovim-tips.lua): Displays common useful Neovim tips and allows you to save new ones.
 
 Please refer to the individual `.lua` files for more detailed configuration information.
 

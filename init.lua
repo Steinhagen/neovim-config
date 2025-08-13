@@ -34,5 +34,6 @@ require('lazy').setup {
   require 'plugins.tiny-inline-diagnostic',
   require 'plugins.render-markdown',
   require 'plugins.sessions',
+  require 'plugins.neovim-tips',
   require 'plugins.misc',
 }
