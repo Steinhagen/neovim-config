@@ -1,46 +1,9 @@
 return {
   'yetone/avante.nvim',
-  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  -- ⚠️ must add this setting! ! !
+  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true` must add this setting!
   build = vim.fn.has 'win32' ~= 0 and 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false' or 'make',
   event = 'VeryLazy',
   version = false, -- Never set this value to "*"! Never!
-  ---@module 'avante'
-  opts = {
-    -- "claude" | "openai" | "azure" | "gemini" | "ollama" | "copilot" | "moonshot"
-    provider = 'gemini',
-    providers = {
-      gemini = {
-        __inherited_from = 'gemini',
-        model = 'gemini-2.5-flash',
-      },
-      claude = {
-        endpoint = 'https://api.anthropic.com',
-        model = 'claude-sonnet-4-20250514',
-        timeout = 30000, -- Timeout in milliseconds
-        extra_request_body = {
-          temperature = 0.75,
-          max_tokens = 20480,
-        },
-      },
-      moonshot = {
-        endpoint = 'https://api.moonshot.ai/v1',
-        model = 'kimi-k2-0711-preview',
-        timeout = 30000, -- Timeout in milliseconds
-        extra_request_body = {
-          temperature = 0.75,
-          max_tokens = 32768,
-        },
-      },
-      ollama = {
-        endpoint = 'http://localhost:11434',
-        model = 'qwen3-coder:30b', -- 'qwen3:8b',
-        timeout = 30000,
-        temperature = 0.7,
-        max_tokens = 4096,
-      },
-    },
-  },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
@@ -80,7 +43,22 @@ return {
     },
   },
   config = function()
-    require('avante').setup()
+    require('avante').setup {
+      -- "claude" | "openai" | "azure" | "gemini" | "ollama" | "copilot" | "moonshot" | "perplexity"
+      provider = 'gemini',
+      providers = {
+        perplexity = {
+          __inherited_from = 'openai',
+          api_key_name = 'PERPLEXITY_API_KEY',
+          endpoint = 'https://api.perplexity.ai',
+          model = 'llama-3.1-sonar-large-128k-online',
+        },
+        ollama = {
+          endpoint = 'http://127.0.0.1:11434',
+          model = 'qwen3-coder:30b', -- 'qwen3:8b',
+        },
+      },
+    }
     -- Nord themed highlights for Avante
     vim.api.nvim_set_hl(0, 'AvanteTitle', { fg = '#8FBCBB', bg = '#3B4252', bold = true })
     vim.api.nvim_set_hl(0, 'AvanteReversedTitle', { fg = '#3B4252', bg = '#3B4252' })
