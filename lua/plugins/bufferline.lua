@@ -19,7 +19,7 @@ return {
         right_trunc_marker = '',
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
-        tab_size = 21,
+        tab_size = 24,
         diagnostics = false,
         diagnostics_update_in_insert = false,
         color_icons = true,
@@ -28,7 +28,9 @@ return {
         show_close_icon = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
         separator_style = { '│', '│' }, -- | "thick" | "thin" | { 'any', 'any' },
-        enforce_regular_tabs = true,
+        enforce_regular_tabs = false,
+        show_duplicate_prefix = true,
+        duplicates_across_groups = true,
         always_show_bufferline = true,
         show_tab_indicators = false,
         indicator = {
