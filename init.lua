@@ -35,5 +35,6 @@ require('lazy').setup {
   require 'plugins.render-markdown',
   require 'plugins.sessions',
   require 'plugins.neovim-tips',
+  require 'plugins.nvim-ufo',
   require 'plugins.misc',
 }
