@@ -1,7 +1,7 @@
 # Personal Neovim Configuration
 
 This repository contains my personal Neovim configuration intented to be usually deployed in a NixOS environment.
-The configuration requires at least Neovim version 0.10 to work properly.
+The configuration requires at least Neovim version 0.11 to work properly.
 
 ![Neovim](https://drive.usercontent.google.com/download?id=1GwE8kpaO13ND2OEz7rEsu-j0sfvz88dp)
 

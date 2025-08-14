@@ -36,5 +36,6 @@ require('lazy').setup {
   require 'plugins.sessions',
   require 'plugins.neovim-tips',
   require 'plugins.nvim-ufo',
+  require 'plugins.undo-glow',
   require 'plugins.misc',
 }

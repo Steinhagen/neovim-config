@@ -6,8 +6,6 @@ return {
   },
   config = function()
     local utils = require 'core.utils'
-    local to_hex = utils.to_hex
-    local primary_fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg
 
     require('bufferline').setup {
       options = {
@@ -58,7 +56,7 @@ return {
       },
       highlights = {
         separator = {
-          fg = to_hex(primary_fg),
+          fg = utils.normal_fg,
         },
         buffer_selected = {
           bold = true,
