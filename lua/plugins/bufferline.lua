@@ -5,6 +5,10 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
+    local utils = require 'core.utils'
+    local to_hex = utils.to_hex
+    local primary_fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg
+
     require('bufferline').setup {
       options = {
         mode = 'buffers', -- set to "tabs" to only show tabpages instead
@@ -54,7 +58,7 @@ return {
       },
       highlights = {
         separator = {
-          fg = '#434C5E',
+          fg = to_hex(primary_fg),
         },
         buffer_selected = {
           bold = true,

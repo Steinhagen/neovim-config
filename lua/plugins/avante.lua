@@ -61,19 +61,14 @@ return {
     }
 
     local function set_avante_highlights()
+      local utils = require 'core.utils'
+      local to_hex = utils.to_hex
+
       -- Get colors from current theme's highlight groups
       local normal_bg = vim.api.nvim_get_hl(0, { name = 'TabLine' }).bg
       local title_fg = vim.api.nvim_get_hl(0, { name = 'Directory' }).fg
       local select_fg = vim.api.nvim_get_hl(0, { name = 'WildMenu' }).fg
       local ask_fg = vim.api.nvim_get_hl(0, { name = 'WarningMsg' }).fg
-
-      -- Convert numbers to hex if needed
-      local function to_hex(color)
-        if type(color) == 'number' then
-          return string.format('#%06x', color)
-        end
-        return color
-      end
 
       -- Theme highlights correctly
       vim.api.nvim_set_hl(0, 'AvanteTitle', { fg = to_hex(title_fg), bg = to_hex(normal_bg), bold = true })
