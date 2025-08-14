@@ -207,5 +207,8 @@ return {
       vim.lsp.config(server, cfg)
       vim.lsp.enable(server)
     end
+
+    vim.keymap.set('n', '<leader>lr', ':LspRestart<CR>', { desc = 'LSP: server restart' })
+    vim.keymap.set('n', '<leader>ll', ':LspLog<CR>', { desc = 'LSP: server log' })
   end,
 }
