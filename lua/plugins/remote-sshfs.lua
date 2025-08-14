@@ -38,7 +38,7 @@ return {
         ssh_known_hosts = vim.fn.expand '$HOME' .. '/.ssh/known_hosts',
         ui = {
           confirm = {
-            connect = false,
+            connect = true,
           },
         },
       },
