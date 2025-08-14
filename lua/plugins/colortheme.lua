@@ -1,5 +1,5 @@
 return {
-  "shaunsingh/nord.nvim",
+  'shaunsingh/nord.nvim',
   lazy = false,
   priority = 1000,
   config = function()
@@ -26,4 +26,3 @@ return {
     vim.keymap.set('n', '<leader>bg', toggle_transparency, { noremap = true, silent = true })
   end,
 }
-
