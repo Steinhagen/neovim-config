@@ -15,10 +15,10 @@ vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', opts)
 vim.keymap.set('n', '<C-s><C-n>', '<cmd>noautocmd w <CR>', opts)
 
 -- quit file
-vim.keymap.set('n', '<C-q>', '<cmd> q <CR>', opts)
+vim.keymap.set('n', '<leader>q', '<cmd> q <CR>', opts)
 
 -- force quit all files
-vim.keymap.set({ 'n', 'v' }, '<C-q><C-a>', '<cmd> qa! <CR>', opts)
+vim.keymap.set({ 'n', 'v' }, '<leader>qa', '<cmd> qa! <CR>', opts)
 
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
@@ -80,5 +80,5 @@ vim.keymap.set('n', ']d', function()
   vim.diagnostic.jump { count = 1, float = true }
 end, { desc = 'Go to next diagnostic message' })
 
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<leader>dm', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
