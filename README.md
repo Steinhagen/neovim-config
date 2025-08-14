@@ -1,7 +1,7 @@
 # Personal Neovim Configuration
 
 This repository contains my personal Neovim configuration intented to be usually deployed in a NixOS environment.
-The configuration requires at least Neovim version 0.11 to work properly.
+The configuration requires the latest Neovim version (0.12/main) to work properly.
 
 ![Neovim](https://drive.usercontent.google.com/download?id=1GwE8kpaO13ND2OEz7rEsu-j0sfvz88dp)
 
@@ -103,6 +103,7 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 
 - [bufferline.lua](./lua/plugins/bufferline.lua): Configures the Bufferline plugin for enhanced buffer/tab display.
 - [lualine.lua](./lua/plugins/lualine.lua): Configures the Lualine status line plugin.
+- [undo-glow.lua](./lua/plugins/undo-glow.lua): Adds a visual "glow" effect to your Neovim operations.
 
 ### LSP
 
@@ -123,6 +124,11 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 - [neovim-tips.lua](./lua/plugins/neovim-tips.lua): Displays common useful Neovim tips and allows you to save new ones.
 
 Please refer to the individual `.lua` files for more detailed configuration information.
+
+## Improvements
+
+1. Selectable color themes
+2. Personalized mouse menu
 
 ## References
 
