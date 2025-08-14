@@ -59,12 +59,36 @@ return {
         },
       },
     }
-    -- Nord themed highlights for Avante
-    vim.api.nvim_set_hl(0, 'AvanteTitle', { fg = '#8FBCBB', bg = '#3B4252', bold = true })
-    vim.api.nvim_set_hl(0, 'AvanteReversedTitle', { fg = '#3B4252', bg = '#3B4252' })
-    vim.api.nvim_set_hl(0, 'AvanteSubtitle', { fg = '#D08770', bg = '#3B4252', bold = true })
-    vim.api.nvim_set_hl(0, 'AvanteReversedSubtitle', { fg = '#3B4252', bg = '#3B4252' })
-    vim.api.nvim_set_hl(0, 'AvanteThirdTitle', { fg = '#B48EAD', bg = '#3B4252', bold = true })
-    vim.api.nvim_set_hl(0, 'AvanteReversedThirdTitle', { fg = '#3B4252', bg = '#3B4252' })
+
+    local function set_avante_highlights()
+      -- Get colors from current theme's highlight groups
+      local normal_bg = vim.api.nvim_get_hl(0, { name = 'TabLine' }).bg
+      local title_fg = vim.api.nvim_get_hl(0, { name = 'Directory' }).fg
+      local select_fg = vim.api.nvim_get_hl(0, { name = 'WildMenu' }).fg
+      local ask_fg = vim.api.nvim_get_hl(0, { name = 'WarningMsg' }).fg
+
+      -- Convert numbers to hex if needed
+      local function to_hex(color)
+        if type(color) == 'number' then
+          return string.format('#%06x', color)
+        end
+        return color
+      end
+
+      -- Theme highlights correctly
+      vim.api.nvim_set_hl(0, 'AvanteTitle', { fg = to_hex(title_fg), bg = to_hex(normal_bg), bold = true })
+      vim.api.nvim_set_hl(0, 'AvanteReversedTitle', { fg = to_hex(normal_bg), bg = to_hex(normal_bg) })
+      vim.api.nvim_set_hl(0, 'AvanteSubtitle', { fg = to_hex(select_fg), bg = to_hex(normal_bg), bold = true })
+      vim.api.nvim_set_hl(0, 'AvanteReversedSubtitle', { fg = to_hex(normal_bg), bg = to_hex(normal_bg) })
+      vim.api.nvim_set_hl(0, 'AvanteThirdTitle', { fg = to_hex(ask_fg), bg = to_hex(normal_bg), bold = true })
+      vim.api.nvim_set_hl(0, 'AvanteReversedThirdTitle', { fg = to_hex(normal_bg), bg = to_hex(normal_bg) })
+    end
+
+    -- Apply highlights immediately and on theme change
+    set_avante_highlights()
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      pattern = '*',
+      callback = set_avante_highlights,
+    })
   end,
 }
