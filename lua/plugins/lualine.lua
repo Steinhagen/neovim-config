@@ -40,7 +40,8 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'nord', -- Set theme based on environment variable
+        -- lualine should be able to get the theme automatically
+        -- theme = 'nord', -- Set theme based on environment variable
         -- Some useful glyphs:
         -- https://www.nerdfonts.com/cheat-sheet
         --        
@@ -60,8 +61,10 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { { 'location', padding = 0 } },
+        lualine_c = {},
+        -- lualine_c = { { 'filename', path = 1 } },
+        lualine_x = {},
+        -- lualine_x = { { 'location', padding = 0 } },
         lualine_y = {},
         lualine_z = {},
       },
