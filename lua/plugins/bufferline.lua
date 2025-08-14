@@ -48,7 +48,7 @@ return {
             text = 'File Explorer',
             padding = 0,
             text_align = 'center',
-            highlight = 'Offset',
+            highlight = 'BufferLineNTOffset',
           },
         },
       },
@@ -67,5 +67,8 @@ return {
         -- fill = {},
       },
     }
+
+    -- Make Neo-tree offset title bold
+    vim.api.nvim_set_hl(0, 'BufferLineNTOffset', { bold = true })
   end,
 }
