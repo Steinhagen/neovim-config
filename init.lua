@@ -19,7 +19,7 @@ require('lazy').setup {
   require 'plugins.colortheme',
   require 'plugins.bufferline',
   require 'plugins.lualine',
-  require 'plugins.avante',
+  require 'plugins.codecompanion',
   require 'plugins.treesitter',
   require 'plugins.gitsigns',
   require 'plugins.my-telescope',

@@ -9,4 +9,5 @@ return {
   opts = {
     render_modes = { 'n', 'c', 't' },
   },
+  ft = { 'markdown', 'codecompanion' },
 }

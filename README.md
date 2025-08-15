@@ -108,7 +108,7 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 - **nvim-neo-tree/neo-tree.nvim** [neotree.lua](./lua/plugins/neotree.lua): Configures the NeoTree file explorer.
 - **nvim-treesitter/nvim-treesitter** [treesitter.lua](./lua/plugins/treesitter.lua): Configures the TreeSitter syntax highlighter.
 - **lukas-reineke/indent-blankline.nvim** [indent-blankline.lua](./lua/plugins/indent-blankline.lua): Configures the Indent Blankline plugin for displaying indentation levels.
-- **yetone/avante.nvim** [avante.lua](./lua/plugins/avante.lua): Configures the Avante plugin for interacting with different models.
+- **olimorris/codecompanion.nvim** [avante.lua](./lua/plugins/olimorris/codecompanion.lua): Configures the Code Companion plugin for interacting with different AI models.
 - **windwp/nvim-autopairs** [misc.lua](./lua/plugins/misc.lua): Autoclose parentheses, brackets, quotes, etc. 
 
 ### UI Plugins
