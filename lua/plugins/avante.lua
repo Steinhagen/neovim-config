@@ -56,6 +56,10 @@ return {
         ollama = {
           endpoint = 'http://127.0.0.1:11434',
           model = 'qwen3-coder:30b', -- 'qwen3:8b',
+          -- Workaround: https://github.com/yetone/avante.nvim/issues/2557
+          is_env_set = function()
+            return true
+          end,
         },
       },
     }
