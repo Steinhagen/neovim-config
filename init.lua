@@ -38,5 +38,6 @@ require('lazy').setup {
   require 'plugins.neovim-tips',
   require 'plugins.nvim-ufo',
   require 'plugins.undo-glow',
+  require 'plugins.image',
   require 'plugins.misc',
 }

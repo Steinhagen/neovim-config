@@ -1,9 +1,20 @@
 # Personal Neovim Configuration
 
 This repository contains my personal Neovim configuration intented to be usually deployed in a NixOS environment.
-The configuration requires the latest Neovim version (0.12/main) to work properly.
 
 ![Neovim](https://drive.usercontent.google.com/download?id=19NFskAwt9c7qNi-XJC8IAQComyuYdJGM)
+
+## Requirements
+
+1. Neovim version 0.12 or later.
+2. Ghostty or Kitty terminal for image protocol support.
+3. tmux with image support enabled. To do that make sure you have the following configuration enabled:
+```tmux
+set -g default-terminal "tmux-256color"
+set -g allow-passthrough on
+set -ga update-environment TERM
+set -ga update-environment TERM_PROGRAM
+```
 
 ## How to use
 
@@ -116,6 +127,7 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 - **akinsho/bufferline.nvim** [bufferline.lua](./lua/plugins/bufferline.lua): Configures the Bufferline plugin for enhanced buffer/tab display.
 - **nvim-lualine/lualine.nvim** [lualine.lua](./lua/plugins/lualine.lua): Configures the Lualine status line plugin.
 - **y3owk1n/undo-glow.nvim** [undo-glow.lua](./lua/plugins/undo-glow.lua): Adds a visual "glow" effect to your Neovim operations.
+- **3rd/image.nvim** [image.lua](./lua/plugins/image.lua): Render images directly inside the terminal.
 - **folke/which-key.nvim** [misc.lua](./lua/plugins/misc.lua): Hints keybinds.
 
 ### LSP
