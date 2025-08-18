@@ -141,6 +141,7 @@ return {
           '$(whereis gcc | cut -d " " -f 2)',
         },
       },
+      cmake = {},
       cssls = {},
       dockerls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
