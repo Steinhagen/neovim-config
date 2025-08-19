@@ -23,6 +23,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>qq', '<cmd> qa! <CR>', opts)
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
+-- delete the current buffer
+vim.keymap.set('n', '<leader>bd', '<cmd>Bdelete<CR>', vim.tbl_extend('force', opts, { desc = 'Delete buffer' }))
+
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
