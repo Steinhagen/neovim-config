@@ -1,5 +1,7 @@
 return {
-  'saxon1964/neovim-tips',
+  -- 'saxon1964/neovim-tips',
+  'Steinhagen/neovim-tips',
+  branch = 'duplicate-fix',
   dependencies = { 'ibhagwan/fzf-lua' },
   opts = {
     -- OPTIONAL: Location of user defined tips (default value shown below)
