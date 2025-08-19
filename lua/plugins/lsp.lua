@@ -188,6 +188,7 @@ return {
       tailwindcss = {},
       terraformls = {},
       ts_ls = {},
+      tinymist = {},
       yamlls = {},
     }
 

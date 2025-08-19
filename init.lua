@@ -39,6 +39,6 @@ require('lazy').setup {
   require 'plugins.nvim-ufo',
   require 'plugins.undo-glow',
   require 'plugins.image',
-  require 'plugins.vimtex',
+  require 'plugins.typst-preview',
   require 'plugins.misc',
 }
