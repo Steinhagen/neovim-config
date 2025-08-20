@@ -117,7 +117,7 @@ return {
     -- Set up the keymaps
     local opts = { noremap = true, silent = true }
     vim.keymap.set('n', '<leader>bgt', toggle_transparency, vim.tbl_extend('force', opts, { desc = 'Toggle theme background transparency' }))
-    vim.keymap.set('n', '<leader>bgs', toggle_theme, vim.tbl_extend('force', opts, { desc = "Toggle between the theme's Light/Dark modes." }))
-    vim.keymap.set('n', '<leader>bgr', refresh_system_theme, vim.tbl_extend('force', opts, { desc = 'Get the theme mode based on the host OS.' }))
+    vim.keymap.set('n', '<leader>bgs', toggle_theme, vim.tbl_extend('force', opts, { desc = "Toggle between the theme's Light/Dark modes" }))
+    vim.keymap.set('n', '<leader>bgr', refresh_system_theme, vim.tbl_extend('force', opts, { desc = 'Get the theme mode based on the host OS' }))
   end,
 }
