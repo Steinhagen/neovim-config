@@ -5,7 +5,49 @@ return {
   config = function()
     -- Initial states
     local bg_transparent = true
-    local is_dark_theme = true
+
+    -- Function to detect system theme
+    local function detect_system_theme()
+      local is_dark_theme = true -- default fallback
+
+      -- Detect macOS appearance
+      if vim.fn.has 'macunix' == 1 then
+        if vim.fn.executable 'defaults' == 1 then
+          local handle = io.popen 'defaults read -g AppleInterfaceStyle 2>/dev/null'
+          if handle then
+            local result = handle:read '*a'
+            handle:close()
+            -- If the command returns 'Dark', we're in dark mode
+            -- If it fails/returns empty, we're in light mode
+            is_dark_theme = result:match 'Dark' ~= nil
+          end
+        end
+
+      -- Detect Linux GNOME appearance
+      elseif vim.fn.executable 'gsettings' == 1 then
+        local handle = io.popen 'gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null'
+        if handle then
+          local result = handle:read '*a'
+          handle:close()
+          -- Check if result contains 'prefer-dark'
+          is_dark_theme = result:match 'prefer%-dark' ~= nil
+        end
+
+      -- Alternative Linux method using busctl (systemd/freedesktop portal)
+      elseif vim.fn.executable 'busctl' == 1 then
+        local handle =
+          io.popen 'busctl --user call org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings ReadOne ss "org.freedesktop.appearance" "color-scheme" 2>/dev/null'
+        if handle then
+          local result = handle:read '*a'
+          handle:close()
+          -- The result format is "v u 1" for dark mode, "v u 0" for light mode
+          local color_scheme = result:match 'u%s+(%d+)'
+          is_dark_theme = color_scheme == '1'
+        end
+      end
+
+      return is_dark_theme
+    end
 
     -- Function to setup tokyonight with current settings
     local setup_tokyonight = function(transparent)
@@ -30,31 +72,11 @@ return {
         hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines
         dim_inactive = false, -- dims inactive windows
         lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
-
-        -- You can override specific color groups to use other groups or a hex color
-        -- function will be called with a ColorScheme table
-        -- on_colors = function(colors)
-        --   -- colors.bg = "#1a1b26"
-        --   -- colors.bg_dark = "#16161e"
-        -- end,
-
-        --- You can override specific highlights to use other groups or a hex color
-        --- function will be called with a Highlights and ColorScheme table
-        -- on_highlights = function(highlights, colors)
-        --   -- Add a subtle border to the telescope picker
-        --   highlights.TelescopeBorder = {
-        --     fg = colors.border_highlight,
-        --   }
-        --   -- Make neo-tree background slightly different
-        --   highlights.NeoTreeNormal = {
-        --     bg = colors.bg_dark,
-        --   }
-        --   highlights.NeoTreeNormalNC = {
-        --     bg = colors.bg_dark,
-        --   }
-        -- end,
       }
     end
+
+    -- Auto-detect system theme on startup
+    local is_dark_theme = detect_system_theme()
 
     -- Toggle background transparency
     local toggle_transparency = function()
@@ -65,7 +87,7 @@ return {
       vim.cmd [[colorscheme tokyonight]]
     end
 
-    -- Toggle between dark and light themes
+    -- Toggle between dark and light themes (manual override)
     local toggle_theme = function()
       is_dark_theme = not is_dark_theme
       -- Set vim background to match the theme
@@ -76,13 +98,26 @@ return {
       vim.cmd [[colorscheme tokyonight]]
     end
 
-    -- Initial setup
+    -- Function to refresh theme based on current system settings
+    local refresh_system_theme = function()
+      local current_system_theme = detect_system_theme()
+      if current_system_theme ~= is_dark_theme then
+        is_dark_theme = current_system_theme
+        vim.o.background = is_dark_theme and 'dark' or 'light'
+        setup_tokyonight(bg_transparent)
+        vim.cmd [[colorscheme tokyonight]]
+      end
+    end
+
+    -- Initial setup with detected theme
     setup_tokyonight(bg_transparent)
     vim.o.background = is_dark_theme and 'dark' or 'light'
     vim.cmd [[colorscheme tokyonight]]
 
     -- Set up the keymaps
-    vim.keymap.set('n', '<leader>bgt', toggle_transparency, { noremap = true, silent = true })
-    vim.keymap.set('n', '<leader>bgs', toggle_theme, { noremap = true, silent = true })
+    local opts = { noremap = true, silent = true }
+    vim.keymap.set('n', '<leader>bgt', toggle_transparency, vim.tbl_extend('force', opts, { desc = 'Toggle theme background transparency' }))
+    vim.keymap.set('n', '<leader>bgs', toggle_theme, vim.tbl_extend('force', opts, { desc = "Toggle between the theme's Light/Dark modes." }))
+    vim.keymap.set('n', '<leader>bgr', refresh_system_theme, vim.tbl_extend('force', opts, { desc = 'Get the theme mode based on the host OS.' }))
   end,
 }
