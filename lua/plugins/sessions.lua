@@ -13,7 +13,7 @@ return {
       { '<leader>sd', '<cmd>SessionDelete<cr>', mode = { 'n', 'x' }, desc = 'Delete' },
       { '<leader>st', '<cmd>SessionToggleAutoSave<cr>', mode = { 'n', 'x' }, desc = 'Toggle Autosave' },
     },
-    cmd = { 'SessionRestore', 'SessionSave', 'SessionDelete', 'SessionSearch', 'SessionToggleAutoSave' },
+    cmd = { 'SessionRestore', 'SessionSave', 'SessionDelete', 'SessionSearch', 'SessionToggleAutoSave', 'Autosession' },
     opts = {
       enabled = true, -- Enables/disables auto creating, saving and restoring
       root_dir = vim.fn.stdpath 'data' .. '/sessions/', -- Root dir where sessions will be stored
