@@ -15,25 +15,25 @@ return {
       -- FIXME Remove hardcodded colors
       highlights = {
         undo = {
-          hl_color = { bg = utils.spellbad_fg },
+          hl_color = { bg = utils.dark_muted_red },
         },
         redo = {
-          hl_color = { bg = utils.question_fg },
+          hl_color = { bg = utils.dark_muted_green },
         },
         yank = {
-          hl_color = { bg = utils.diffchange_fg },
+          hl_color = { bg = utils.dark_muted_yellow },
         },
         paste = {
-          hl_color = { bg = utils.title_fg },
+          hl_color = { bg = utils.dark_muted_cyan },
         },
         search = {
-          hl_color = { bg = utils.removed_fg },
+          hl_color = { bg = utils.dark_muted_purple },
         },
         comment = {
-          hl_color = { bg = utils.select_fg },
+          hl_color = { bg = utils.dark_muted_orange },
         },
         cursor = {
-          hl_color = { bg = utils.ask_fg },
+          hl_color = { bg = utils.dark_muted_pink },
         },
       },
       priority = 2048 * 3,

@@ -18,14 +18,14 @@ local function get_hl_hex(group, kind)
 end
 
 -- Exported theme colors
-M.normal_bg = get_hl_hex('TabLine', 'bg')
-M.title_fg = get_hl_hex('Directory', 'fg')
-M.select_fg = get_hl_hex('WildMenu', 'fg')
-M.ask_fg = get_hl_hex('WarningMsg', 'fg')
 M.normal_fg = get_hl_hex('Normal', 'fg')
-M.spellbad_fg = get_hl_hex('SpellBad', 'fg')
-M.question_fg = get_hl_hex('Question', 'fg')
-M.diffchange_fg = get_hl_hex('DiffChange', 'fg')
-M.removed_fg = get_hl_hex('Removed', 'fg')
+
+M.dark_muted_orange = '#7A5A3D'
+M.dark_muted_purple = '#5C475C'
+M.dark_muted_pink = '#793D54'
+M.dark_muted_cyan = '#325B5B'
+M.dark_muted_yellow = '#7A683A'
+M.dark_muted_green = '#2F4640'
+M.dark_muted_red = '#693232'
 
 return M
