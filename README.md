@@ -28,37 +28,7 @@ cp -r lua/ .stylua.toml init.lua $NVIM_CONFIG
 
 ### Normal
 
-If you are using a non-NixOS distribution, make sure you uncomment the Mason configuration to get all LSP's on your machine:
-
-```lua ./lua/plugins/lsp.lua
-  { 'mason-org/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-  'mason-org/mason-lspconfig.nvim',
-  'WhoIsSethDaniel/mason-tool-installer.nvim',
-```
-
-```lua ./lua/plugins/lsp.lua
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
-    })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-```
-
-``` lua ./lua/plugins/none-ls.lua
-  dependencies = {
-    'jayp0521/mason-null-ls.nvim', -- ensure dependencies are installed
-  },
-  config = function()
-    require('mason-null-ls').setup {
-      ensure_installed = {
-        'prettier', -- ts/js formatter
-        'eslint_d', -- ts/js linter
-        'shfmt', -- Shell formatter
-        'checkmake', -- linter for Makefiles
-      },
-      automatic_installation = true,
-    }
-```
+If you are using a non-NixOS distribution, the Mason configuration should be enabled automatically so that you get all LSP's on your machine.
 
 ### NixOS
 
