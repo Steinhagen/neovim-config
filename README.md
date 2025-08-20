@@ -70,6 +70,12 @@ If this configuration is deployed on a NixOS machine, make sure that your config
       packages = (
         with pkgs;
         [
+          ghostty
+          opencode
+          imagemagick
+          typst
+          fzf
+
           rust-analyzer
           pyright
           sshfs
@@ -157,7 +163,6 @@ Please refer to the individual `.lua` files for more detailed configuration info
 
 1. Improve mouse menu
 2. LSPs are working as expected on non-NixOS distributions
-3. Typst is working as expected and it's easy to use
 
 ## References
 
