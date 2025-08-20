@@ -108,7 +108,7 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 
 ### Themes
 
-- **shaunsingh/nord.nvim** [colortheme.lua](./lua/plugins/colortheme.lua): Sets the default Neovim theme.
+- **folke/tokyonight.nvim** [colortheme.lua](./lua/plugins/colortheme.lua): Sets the default Neovim theme.
 
 ### Completion
 
@@ -155,8 +155,9 @@ Please refer to the individual `.lua` files for more detailed configuration info
 
 ## Improvements
 
-1. Selectable color themes
-2. Personalized mouse menu
+1. Improve mouse menu
+2. LSPs are working as expected on non-NixOS distributions
+3. Typst is working as expected and it's easy to use
 
 ## References
 
