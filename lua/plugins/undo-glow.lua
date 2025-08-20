@@ -12,7 +12,6 @@ return {
         animtion_type = 'zoom',
         window_scoped = true,
       },
-      -- FIXME Remove hardcodded colors
       highlights = {
         undo = {
           hl_color = { bg = utils.dark_muted_red },

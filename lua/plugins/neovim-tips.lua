@@ -6,8 +6,6 @@ return {
     user_file = vim.fn.stdpath 'config' .. '/lua/plugins/data/neovim-tips/user-tips.txt',
   },
   init = function()
-    -- OPTIONAL: Change to your liking or drop completely
-    -- The plugin does not provide default key mappings, only commands
     local map = vim.keymap.set
     map('n', '<leader>nto', ':NeovimTips<CR>', { desc = 'Neovim tips', noremap = true, silent = true })
     map('n', '<leader>nte', ':NeovimTipsEdit<CR>', { desc = 'Edit your Neovim tips', noremap = true, silent = true })
