@@ -13,6 +13,8 @@ return {
       -- See if the theme is forced to a mode
       if vim.env.NVIM_THEME_MODE == 'light' then
         is_dark_theme = false
+      elseif vim.env.NVIM_THEME_MODE == 'dark' then
+        is_dark_theme = true
 
       -- Detect macOS appearance
       elseif vim.fn.has 'macunix' == 1 then
