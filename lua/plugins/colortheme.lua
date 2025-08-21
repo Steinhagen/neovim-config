@@ -23,16 +23,6 @@ return {
           end
         end
 
-      -- Detect Linux GNOME appearance
-      elseif vim.fn.executable 'gsettings' == 1 then
-        local handle = io.popen 'gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null'
-        if handle then
-          local result = handle:read '*a'
-          handle:close()
-          -- Check if result contains 'prefer-dark'
-          is_dark_theme = result:match 'prefer%-dark' ~= nil
-        end
-
       -- Alternative Linux method using busctl (systemd/freedesktop portal)
       elseif vim.fn.executable 'busctl' == 1 then
         local handle =
