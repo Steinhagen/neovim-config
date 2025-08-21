@@ -74,6 +74,10 @@ If this configuration is deployed on a NixOS machine, make sure that your config
   };
 ```
 
+## Theme
+
+Neovim will automatically detect what theme you are currently using (dark/light) and will adapt to it.
+
 ## Plugins
 
 ### General Configuration
@@ -135,7 +139,7 @@ Please refer to the individual `.lua` files for more detailed configuration info
 ## Improvements
 
 1. Improve mouse menu
-2. LSPs are working as expected on non-NixOS distributions
+2. Force a specific theme style
 
 ## References
 
