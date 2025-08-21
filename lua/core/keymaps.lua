@@ -40,7 +40,7 @@ vim.keymap.set('n', '<Right>', ':vertical resize +1<CR>', opts)
 -- Buffers
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<leader>x', ':bdelete!<CR>', vim.tbl_extend('force', opts, { desc = 'Close buffer' }))
+vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', vim.tbl_extend('force', opts, { desc = 'Close buffer' }))
 vim.keymap.set('n', '<leader>b', '<cmd> enew <CR>', vim.tbl_extend('force', opts, { desc = 'New buffer' }))
 
 -- Window management
