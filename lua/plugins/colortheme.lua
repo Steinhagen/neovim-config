@@ -10,8 +10,12 @@ return {
     local function detect_system_theme()
       local is_dark_theme = true -- default fallback
 
+      -- See if the theme is forced to a mode
+      if vim.env.NVIM_THEME_MODE == 'light' then
+        is_dark_theme = false
+
       -- Detect macOS appearance
-      if vim.fn.has 'macunix' == 1 then
+      elseif vim.fn.has 'macunix' == 1 then
         if vim.fn.executable 'defaults' == 1 then
           local handle = io.popen 'defaults read -g AppleInterfaceStyle 2>/dev/null'
           if handle then
@@ -23,7 +27,7 @@ return {
           end
         end
 
-      -- Alternative Linux method using busctl (systemd/freedesktop portal)
+      -- Detect Linux appearance using busctl (systemd/freedesktop portal)
       elseif vim.fn.executable 'busctl' == 1 then
         local handle =
           io.popen 'busctl --user call org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop org.freedesktop.portal.Settings ReadOne ss "org.freedesktop.appearance" "color-scheme" 2>/dev/null'

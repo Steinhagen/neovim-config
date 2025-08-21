@@ -77,6 +77,11 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 ## Theme
 
 Neovim will automatically detect what theme you are currently using (dark/light) and will adapt to it.
+If you want to force a specific environment theme, set the variable `NVIM_THEME_MODE` to `light` or `dark`:
+
+``` bash
+export NVIM_THEME_MODE="light"
+```
 
 ## Plugins
 
@@ -139,7 +144,6 @@ Please refer to the individual `.lua` files for more detailed configuration info
 ## Improvements
 
 1. Improve mouse menu
-2. Force a specific theme style
 
 ## References
 
