@@ -21,9 +21,9 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<leader>rs', '<cmd>RemoteStart<CR>', { desc = 'Remote: Start' })
+    vim.keymap.set('n', '<leader>rc', '<cmd>RemoteStart<CR>', { desc = 'Remote: Start/Connect' })
     vim.keymap.set('n', '<leader>ri', '<cmd>RemoteInfo<CR>', { desc = 'Remote: Info' })
     vim.keymap.set('n', '<leader>rl', '<cmd>RemoteLog<CR>', { desc = 'Remote: Log' })
-    vim.keymap.set('n', '<leader>rt', '<cmd>RemoteStop<CR>', { desc = 'Remote: Stop' })
+    vim.keymap.set('n', '<leader>rd', '<cmd>RemoteStop<CR>', { desc = 'Remote: Stop/Disconnect' })
   end,
 }

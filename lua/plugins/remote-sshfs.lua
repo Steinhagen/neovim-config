@@ -17,7 +17,7 @@ return {
       function()
         require('remote-sshfs.api').connect()
       end,
-      desc = 'Remote SSH Connect',
+      desc = 'Remote SSHFS: Connect',
       noremap = true,
     },
     {
@@ -25,7 +25,7 @@ return {
       function()
         require('remote-sshfs.api').disconnect()
       end,
-      desc = 'Remote SSH Disconnect',
+      desc = 'Remote SSHFS: Disconnect',
       noremap = true,
     },
   },
