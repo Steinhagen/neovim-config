@@ -13,7 +13,7 @@ return {
   },
   keys = {
     {
-      '<leader>rc',
+      '<leader>Rc',
       function()
         require('remote-sshfs.api').connect()
       end,
@@ -21,7 +21,7 @@ return {
       noremap = true,
     },
     {
-      '<leader>rd',
+      '<leader>Rd',
       function()
         require('remote-sshfs.api').disconnect()
       end,

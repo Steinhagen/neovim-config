@@ -123,7 +123,8 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 ### Utils
 
 - **nvim-telescope/telescope.nvim** [my-telescope.lua](./lua/plugins/my-telescope.lua): Configures the Telescope plugin for fuzzy finding and picking.
-- **nosduco/remote-sshfs.nvim** [remote-sshfs.lua](./lua/plugins/remote-sshfs.lua): Adds support for remote development using sshfs.
+- **nosduco/remote-sshfs.nvim** [remote-sshfs.lua](./lua/plugins/remote-sshfs.lua): Adds support for remote development using SSHFS.
+- **amitds1997/remote-nvim.nvim** [remote-nvim.lua](./lua/plugins/remote-nvim.lua): Adds support for remote development similar to VSCode.
 - **MeanderingProgrammer/render-markdown.nvim** [render-markdown.lua](./lua/plugins/render-markdown.lua): Plugin to improve viewing Markdown files in Neovim.
 - **akinsho/toogleterm.nvim** [toggleterm.lua](./lua/plugins/toggleterm.lua): Configures Terminal plugin.
 - **saxon1964/neovim-tips** [neovim-tips.lua](./lua/plugins/neovim-tips.lua): Displays common useful Neovim tips and allows you to save new ones.
