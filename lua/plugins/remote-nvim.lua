@@ -1,7 +1,5 @@
 return {
-  -- 'amitds1997/remote-nvim.nvim',
-  'thienandangthanh/remote-nvim.nvim',
-  branch = 'fix/incorrect-script-installation-file-reference',
+  'amitds1997/remote-nvim.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim', -- For standard functions
     'MunifTanjim/nui.nvim', -- To build the plugin UI
