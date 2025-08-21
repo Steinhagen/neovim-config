@@ -8,7 +8,9 @@ This repository contains my personal Neovim configuration intented to be usually
 
 1. Neovim version 0.12 or later.
 2. Ghostty or Kitty terminal for image protocol support.
-3. tmux with image support enabled. To do that make sure you have the following configuration enabled:
+3. python3-venv for some Mason packages.
+4. tmux with image support enabled. To do that make sure you have the following configuration enabled:
+
 ```tmux
 set -g default-terminal "tmux-256color"
 set -g allow-passthrough on
@@ -23,7 +25,7 @@ Add the following configuration into your default Neovim directory:
 ```bash
 NVIM_CONFIG="~/.config/nvim/"
 mkdir -p $NVIM_CONFIG
-cp -r lua/ .stylua.toml init.lua $NVIM_CONFIG 
+cp -r lua/ .stylua.toml init.lua $NVIM_CONFIG
 ```
 
 ### Normal
@@ -96,7 +98,7 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 - **nvim-treesitter/nvim-treesitter** [treesitter.lua](./lua/plugins/treesitter.lua): Configures the TreeSitter syntax highlighter.
 - **lukas-reineke/indent-blankline.nvim** [indent-blankline.lua](./lua/plugins/indent-blankline.lua): Configures the Indent Blankline plugin for displaying indentation levels.
 - **olimorris/codecompanion.nvim** [avante.lua](./lua/plugins/olimorris/codecompanion.lua): Configures the Code Companion plugin for interacting with different AI models.
-- **windwp/nvim-autopairs** [misc.lua](./lua/plugins/misc.lua): Autoclose parentheses, brackets, quotes, etc. 
+- **windwp/nvim-autopairs** [misc.lua](./lua/plugins/misc.lua): Autoclose parentheses, brackets, quotes, etc.
 
 ### UI Plugins
 
@@ -110,7 +112,7 @@ If this configuration is deployed on a NixOS machine, make sure that your config
 
 - **neovim/nvim-lspconfig** [lsp.lua](./lua/plugins/lsp.lua): Configures the Neovim LSP client.
 - **stevearc/conform.nvim** [conform.lua](./lua/plugins/conform.lua): Configures the Conform plugin for automatic code formatting.
-- **nvimtools/none-ls.nvim** [none-ls.lua](./lua/plugins/none-ls.lua): Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua. 
+- **nvimtools/none-ls.nvim** [none-ls.lua](./lua/plugins/none-ls.lua): Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
 
 ### Git
 
