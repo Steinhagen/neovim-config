@@ -44,3 +44,4 @@ vim.o.tabstop = 4 -- Insert n spaces for a tab (default: 8)
 vim.o.softtabstop = 4 -- Number of spaces that a tab counts for while performing editing operations (default: 0)
 vim.o.expandtab = true -- Convert tabs to spaces (default: false)
 vim.o.winborder = 'rounded' -- Add border to all floating windows
+require('vim._extui').enable {} -- Enable the experimental “extui” (extended UI) that reroutes and renders core UI elements
