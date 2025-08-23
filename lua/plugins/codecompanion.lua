@@ -4,8 +4,8 @@ return {
   'olimorris/codecompanion.nvim',
   opts = {
     strategies = {
-      chat = { adapter = 'ollama_chat' },
-      inline = { adapter = 'ollama_inline' },
+      chat = { adapter = 'gemini' }, -- ollama_chat
+      inline = { adapter = 'gemini' }, -- ollama_inline,
     },
 
     adapters = {
@@ -18,13 +18,23 @@ return {
           },
         })
       end,
-
       ollama_chat = function()
         return require('codecompanion.adapters').extend('ollama', {
           schema = {
             model = {
               default = 'gemma3:4b',
             },
+          },
+        })
+      end,
+      gemini = function()
+        return require('codecompanion.adapters').extend('gemini', {
+          -- url = 'https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${api_key}',
+          env = {
+            api_key = os.getenv 'GEMINI_API_KEY',
+            -- model = 'schema.model.default',
+            -- model = 'gemini-2.5-flash',
+            default = 'gemini-2.5-pro',
           },
         })
       end,
