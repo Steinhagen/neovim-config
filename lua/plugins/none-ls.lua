@@ -1,4 +1,4 @@
-local utils = require 'core.utils'
+local utils = require 'utils.system'
 
 return {
   -- Ensure dependencies are installed

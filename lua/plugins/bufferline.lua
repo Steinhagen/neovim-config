@@ -5,7 +5,7 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
-    local utils = require 'core.utils'
+    local utils = require 'utils.colors'
 
     require('bufferline').setup {
       options = {

@@ -3,7 +3,7 @@ return {
   event = { 'VeryLazy' },
 
   config = function()
-    local utils = require 'core.utils'
+    local utils = require 'utils.colors'
     require('undo-glow').setup {
 
       animation = {

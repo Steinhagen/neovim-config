@@ -1,4 +1,4 @@
-local utils = require 'core.utils'
+local utils = require 'utils.system'
 
 return {
   -- Automatically install LSPs and related tools to stdpath for Neovim
