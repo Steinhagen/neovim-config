@@ -33,18 +33,21 @@ cp -r lua/ .stylua.toml init.lua $NVIM_CONFIG
 If you are using a non-NixOS distribution, the Mason configuration should be enabled automatically so that you get all LSP's on your machine.
 
  Debian:
+
 ```bash
 echo "Install all needed packages..."
 sudo apt install -y cmake nodejs npm python3 python3-pip clang
 ```
 
  Fedora:
+
 ```bash
 echo "Install all needed packages..."
 sudo dnf install -y cmake nodejs npm python3 python3-pip clang
 ```
 
 Common for non  NixOS distributions:
+
 ```bash
 echo "1. Making sure we have the latest nvim version installed..."
 TEMP_DIR=$(mktemp -d)
@@ -61,6 +64,7 @@ git clone https://github.com/Steinhagen/neovim-config $HOME/.config/nvim
 Since Mason doesn't work for NixOS, we need to provide all LSPs that we are using ourselves.
 
  NixOS
+
 ```nix
 packages = (
   with pkgs;
@@ -73,6 +77,8 @@ packages = (
     fzf
 
     # Language servers
+    prettier
+    prettierd
     rust-analyzer
     pyright
     sshfs
@@ -102,7 +108,7 @@ packages = (
 Neovim will automatically detect what theme you are currently using (dark/light) and will adapt to it.
 If you want to force a specific environment theme, set the variable `NVIM_THEME_MODE` to `light` or `dark`:
 
-``` bash
+```bash
 export NVIM_THEME_MODE="light"
 ```
 
