@@ -47,6 +47,12 @@ return {
     -- This is the name of the active theme
     local current_theme_name = 'catppuccin'
 
+    -- Force a specific theme via the environment variables
+    -- Available themes: 'catppuccin', 'tokyonight'
+    if vim.env.NVIM_THEME_NAME and themes[vim.env.NVIM_THEME_NAME] then
+      current_theme_name = vim.env.NVIM_THEME_NAME
+    end
+
     local active_theme = themes[current_theme_name]
     if not active_theme then
       vim.notify('Theme "' .. current_theme_name .. '" not found in configuration.', vim.log.levels.ERROR)
