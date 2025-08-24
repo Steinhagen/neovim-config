@@ -11,6 +11,11 @@ return {
   {
     -- Powerful Git integration for Vim
     'tpope/vim-fugitive',
+    config = function()
+      local opts = { noremap = true, silent = true }
+      vim.keymap.set('n', '<leader>Gv', '<cmd>Gvdiffsplit<CR>', vim.tbl_extend('force', opts, { desc = 'Git diff - vertical split' }))
+      vim.keymap.set('n', '<leader>Gw', '<cmd>GBrowse<CR>', vim.tbl_extend('force', opts, { desc = 'Open the Github webpage for the current file or object' }))
+    end,
   },
   {
     -- GitHub integration for vim-fugitive
