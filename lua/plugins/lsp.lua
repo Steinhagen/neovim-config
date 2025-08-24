@@ -187,7 +187,7 @@ return {
           },
         },
         ruff = {},
-        sqlls = {},
+        -- sqlls = {},
         tailwindcss = {},
         terraformls = {},
         ts_ls = {},
