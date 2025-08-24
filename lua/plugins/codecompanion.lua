@@ -63,7 +63,7 @@ return {
       desc = 'Code Companion - Actions',
     },
     {
-      mapping_key_prefix .. 'v',
+      mapping_key_prefix .. 't',
       '<cmd>CodeCompanionChat Toggle<cr>',
       desc = 'Code Companion - Toggle',
       mode = { 'n', 'v' },
@@ -88,7 +88,7 @@ return {
       mode = { 'n', 'v' },
     },
     {
-      mapping_key_prefix .. 't',
+      mapping_key_prefix .. 'T',
       '<cmd>CodeCompanion /tests<cr>',
       desc = 'Code Companion - Generate unit test',
       mode = 'v',
