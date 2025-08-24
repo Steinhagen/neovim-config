@@ -35,15 +35,15 @@ If you are using a non-NixOS distribution, the Mason configuration should be ena
  Debian:
 
 ```bash
-echo "Install all needed packages..."
-sudo apt install -y cmake nodejs npm python3 python3-pip clang
+echo "Install all needed packages for basic functionality..."
+sudo apt install -y cmake nodejs npm python3 python3-pip clang ripgrep
 ```
 
  Fedora:
 
 ```bash
-echo "Install all needed packages..."
-sudo dnf install -y cmake nodejs npm python3 python3-pip clang
+echo "Install all needed packages for basic functionality..."
+sudo dnf install -y cmake nodejs npm python3 python3-pip clang ripgrep
 ```
 
 Common for non  NixOS distributions:
