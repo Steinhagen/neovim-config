@@ -28,50 +28,73 @@ mkdir -p $NVIM_CONFIG
 cp -r lua/ .stylua.toml init.lua $NVIM_CONFIG
 ```
 
-### Normal
+## Installation
 
 If you are using a non-NixOS distribution, the Mason configuration should be enabled automatically so that you get all LSP's on your machine.
 
-### NixOS
+ Debian:
+```bash
+echo "Install all needed packages..."
+sudo apt install -y cmake nodejs npm python3 python3-pip clang
+```
 
-If this configuration is deployed on a NixOS machine, make sure that your configuration has the following packages installed:
+ Fedora:
+```bash
+echo "Install all needed packages..."
+sudo dnf install -y cmake nodejs npm python3 python3-pip clang
+```
 
+Common for non  NixOS distributions:
+```bash
+echo "1. Making sure we have the latest nvim version installed..."
+TEMP_DIR=$(mktemp -d)
+git clone --single-branch --branch master https://github.com/neovim/neovim.git "$TEMP_DIR"
+cd "$TEMP_DIR" && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install && cd -
+
+echo "2. Cleaning nvim data and config directories..."
+rm -rf "$HOME/.local/share/nvim" "$HOME/.local/state/nvim" "$HOME/.cache/nvim" "$HOME/.config/nvim"
+
+echo "3. Get the latest personal nvim configuration..."
+git clone https://github.com/Steinhagen/neovim-config $HOME/.config/nvim
+```
+
+Since Mason doesn't work for NixOS, we need to provide all LSPs that we are using ourselves.
+
+ NixOS
 ```nix
-  users.users = {
-    myusername = {
-      packages = (
-        with pkgs;
-        [
-          ghostty
-          opencode
-          imagemagick
-          typst
-          fzf
+packages = (
+  with pkgs;
+  [
+    # Application packages
+    ghostty
+    opencode
+    imagemagick
+    typst
+    fzf
 
-          rust-analyzer
-          pyright
-          sshfs
-          ripgrep
-          checkmake
-          astyle
-          lua-language-server
-          haskell-language-server
-          sumneko-lua-language-server
-          elmPackages.elm-language-server
-          ansible-language-server
-          bash-language-server
-          vscode-langservers-extracted
-          dockerfile-language-server-nodejs
-          python3Packages.python-lsp-server
-          ruff
-          tailwindcss-language-server
-          terraform-ls
-          typescript-language-server
-          yaml-language-server
-        ]
-      );
-    };
-  };
+    # Language servers
+    rust-analyzer
+    pyright
+    sshfs
+    ripgrep
+    checkmake
+    astyle
+    lua-language-server
+    haskell-language-server
+    sumneko-lua-language-server
+    elmPackages.elm-language-server
+    ansible-language-server
+    bash-language-server
+    vscode-langservers-extracted
+    dockerfile-language-server-nodejs
+    python3Packages.python-lsp-server
+    ruff
+    tailwindcss-language-server
+    terraform-ls
+    typescript-language-server
+    yaml-language-server
+  ]
+);
 ```
 
 ## Theme
