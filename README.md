@@ -13,9 +13,10 @@ This repository contains my personal Neovim configuration intented to be usually
 
 ```tmux
 set -g default-terminal "tmux-256color"
-set -g allow-passthrough on
+set -gq allow-passthrough on
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
+set -g visual-activity off
 ```
 
 ## How to use
@@ -36,7 +37,7 @@ If you are using a non-NixOS distribution, the Mason configuration should be ena
 
 ```bash
 echo "1. Install all needed packages for basic functionality..."
-sudo apt install -y cmake nodejs npm python3 python3-pip clang ripgrep
+sudo apt install -y cmake nodejs npm python3 python3-pip clang ripgrep imagemagick tmux
 
 echo "2. Install all packages for the complete GUI functionality..."
 curl -fsSL https://download.opensuse.org/repositories/home:clayrisser:sid/Debian_Unstable/Release.key | gpg --dearmor | sudo tee /etc/apt/keyrings/home_clayrisser_sid.gpg > /dev/null
@@ -56,7 +57,7 @@ sudo apt install -y ghostty
 
 ```bash
 echo "1. Install all needed packages for basic functionality..."
-sudo dnf install -y cmake nodejs npm python3 python3-pip clang ripgrep
+sudo dnf install -y cmake nodejs npm python3 python3-pip clang ripgrep ImageMagick tmux
 
 echo "2. Install all packages for the complete GUI functionality..."
 sudo dnf copr enable alternateved/ghostty
@@ -125,10 +126,12 @@ packages = (
 ## Theme
 
 Neovim will automatically detect what theme you are currently using (dark/light) and will adapt to it.
-If you want to force a specific environment theme, set the variable `NVIM_THEME_MODE` to `light` or `dark`:
+If you want to force a specific environment theme, set the variable `NVIM_THEME_MODE` to `light` or `dark`.
+You can also force a specific theme by setting the variable `NVIM_THEME_NAME` to one of the existing themes: `tokyonight`, `catppuccin`:
 
 ```bash
-export NVIM_THEME_MODE="light"
+export NVIM_THEME_MODE='light'
+export NVIM_THEME_NAME='tokyonight'
 ```
 
 ## Plugins
@@ -192,6 +195,7 @@ Please refer to the individual `.lua` files for more detailed configuration info
 ## Improvements
 
 1. Improve mouse menu
+2. Identify why images aren't displayed when conected via SSH
 
 ## References
 
