@@ -72,7 +72,7 @@ Common for non  NixOS distributions:
 echo "1. Making sure we have the latest nvim version installed..."
 TEMP_DIR=$(mktemp -d)
 git clone --single-branch --branch master https://github.com/neovim/neovim.git "$TEMP_DIR"
-cd "$TEMP_DIR" && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install && cd -
+cd "$TEMP_DIR" && make -j$(( $(nproc) * 3 / 4 )) CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install && cd -
 
 echo "2. Cleaning nvim data and config directories..."
 rm -rf "$HOME/.local/share/nvim" "$HOME/.local/state/nvim" "$HOME/.cache/nvim" "$HOME/.config/nvim"
