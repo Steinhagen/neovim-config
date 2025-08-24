@@ -35,15 +35,34 @@ If you are using a non-NixOS distribution, the Mason configuration should be ena
  Debian:
 
 ```bash
-echo "Install all needed packages for basic functionality..."
+echo "1. Install all needed packages for basic functionality..."
 sudo apt install -y cmake nodejs npm python3 python3-pip clang ripgrep
+
+echo "2. Install all packages for the complete GUI functionality..."
+curl -fsSL https://download.opensuse.org/repositories/home:clayrisser:sid/Debian_Unstable/Release.key | gpg --dearmor | sudo tee /etc/apt/keyrings/home_clayrisser_sid.gpg > /dev/null
+ARCH="$(dpkg --print-architecture)"
+sudo tee /etc/apt/sources.list.d/home:clayrisser:sid.sources > /dev/null <<EOF
+Types: deb
+URIs: http://download.opensuse.org/repositories/home:/clayrisser:/sid/Debian_Unstable/
+Suites: /
+Architectures: $ARCH
+Signed-By: /etc/apt/keyrings/home_clayrisser_sid.gpg
+EOF
+sudo apt update -y
+sudo apt install -y ghostty
 ```
 
  Fedora:
 
 ```bash
-echo "Install all needed packages for basic functionality..."
+echo "1. Install all needed packages for basic functionality..."
 sudo dnf install -y cmake nodejs npm python3 python3-pip clang ripgrep
+
+echo "2. Install all packages for the complete GUI functionality..."
+sudo dnf copr enable alternateved/ghostty
+sudo dnf -y update
+sudo dnf install -y ghostty
+
 ```
 
 Common for non  NixOS distributions:
