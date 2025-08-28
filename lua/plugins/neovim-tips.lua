@@ -16,6 +16,7 @@ return {
     map('n', '<leader>nto', ':NeovimTips<CR>', { desc = 'Neovim tips', noremap = true, silent = true })
     map('n', '<leader>nte', ':NeovimTipsEdit<CR>', { desc = 'Edit your Neovim tips', noremap = true, silent = true })
     map('n', '<leader>nta', ':NeovimTipsAdd<CR>', { desc = 'Add your Neovim tip', noremap = true, silent = true })
+    map('n', '<leader>ntr', ':NeovimTipsRandom<CR>', { desc = 'Neovim random tip', noremap = true, silent = true })
     map('n', '<leader>nth', ':NeovimTipsHelp<CR>', { desc = 'Neovim tips user guide', noremap = true, silent = true })
   end,
 }
