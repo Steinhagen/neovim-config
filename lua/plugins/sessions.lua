@@ -7,13 +7,13 @@ return {
       'BufWritePre',
     },
     keys = {
-      { '<leader>ss', '<cmd>SessionSearch<cr>', mode = { 'n', 'x' }, desc = 'Pick' },
-      { '<leader>sr', '<cmd>SessionRestore<cr>', mode = { 'n', 'x' }, desc = 'Restore' },
-      { '<leader>sw', '<cmd>SessionSave<cr>', mode = { 'n', 'x' }, desc = 'Save' },
-      { '<leader>sd', '<cmd>SessionDelete<cr>', mode = { 'n', 'x' }, desc = 'Delete' },
-      { '<leader>st', '<cmd>SessionToggleAutoSave<cr>', mode = { 'n', 'x' }, desc = 'Toggle Autosave' },
+      { '<leader>ss', '<cmd>AutoSession search<cr>', mode = { 'n', 'x' }, desc = 'Pick' },
+      { '<leader>sr', '<cmd>AutoSession restore<cr>', mode = { 'n', 'x' }, desc = 'Restore' },
+      { '<leader>sw', '<cmd>AutoSession save<cr>', mode = { 'n', 'x' }, desc = 'Save' },
+      { '<leader>sd', '<cmd>AutoSession delete<cr>', mode = { 'n', 'x' }, desc = 'Delete' },
+      { '<leader>st', '<cmd>AutoSession toggle<cr>', mode = { 'n', 'x' }, desc = 'Toggle Autosave' },
     },
-    cmd = { 'SessionRestore', 'SessionSave', 'SessionDelete', 'SessionSearch', 'SessionToggleAutoSave', 'Autosession' },
+    cmd = { 'AutoSession' },
     opts = {
       enabled = true, -- Enables/disables auto creating, saving and restoring
       root_dir = vim.fn.stdpath 'data' .. '/sessions/', -- Root dir where sessions will be stored
@@ -36,7 +36,7 @@ return {
       log_level = 'error', -- Sets the log level of the plugin (debug, info, warn, error).
 
       session_lens = {
-        load_on_setup = false, -- Initialize on startup (requires Telescope)
+        load_on_setup = true, -- Initialize on startup (requires Telescope)
         theme_conf = { -- Pass through for Telescope theme options
           -- layout_config = { -- As one example, can change width/height of picker
           --   width = 0.8,    -- percent of window
