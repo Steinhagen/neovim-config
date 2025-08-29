@@ -9,35 +9,37 @@ return {
     },
 
     adapters = {
-      ollama_inline = function()
-        return require('codecompanion.adapters').extend('ollama', {
-          schema = {
-            model = {
-              default = 'gemma3:270m',
+      http = {
+        ollama_inline = function()
+          return require('codecompanion.adapters').extend('ollama', {
+            schema = {
+              model = {
+                default = 'gemma3:270m',
+              },
             },
-          },
-        })
-      end,
-      ollama_chat = function()
-        return require('codecompanion.adapters').extend('ollama', {
-          schema = {
-            model = {
-              default = 'gemma3:4b',
+          })
+        end,
+        ollama_chat = function()
+          return require('codecompanion.adapters').extend('ollama', {
+            schema = {
+              model = {
+                default = 'gemma3:4b',
+              },
             },
-          },
-        })
-      end,
-      gemini = function()
-        return require('codecompanion.adapters').extend('gemini', {
-          -- url = 'https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${api_key}',
-          env = {
-            api_key = os.getenv 'GEMINI_API_KEY',
-            -- model = 'schema.model.default',
-            -- model = 'gemini-2.5-flash',
-            default = 'gemini-2.5-pro',
-          },
-        })
-      end,
+          })
+        end,
+        gemini = function()
+          return require('codecompanion.adapters').extend('gemini', {
+            -- url = 'https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${api_key}',
+            env = {
+              api_key = os.getenv 'GEMINI_API_KEY',
+              -- model = 'schema.model.default',
+              -- model = 'gemini-2.5-flash',
+              default = 'gemini-2.5-pro',
+            },
+          })
+        end,
+      },
     },
   },
   dependencies = {
