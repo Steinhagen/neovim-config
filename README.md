@@ -37,7 +37,7 @@ If you are using a non-NixOS distribution, the Mason configuration should be ena
 
 ```bash
 echo "1. Install all needed packages for basic functionality..."
-sudo apt install -y cmake nodejs npm python3 python3-pip clang ripgrep imagemagick tmux
+sudo apt install -y cmake nodejs npm python3 python3-pip python3-venv clang ripgrep imagemagick tmux
 
 echo "2. Install all packages for the complete GUI functionality..."
 curl -fsSL https://download.opensuse.org/repositories/home:clayrisser:sid/Debian_Unstable/Release.key | gpg --dearmor | sudo tee /etc/apt/keyrings/home_clayrisser_sid.gpg > /dev/null
