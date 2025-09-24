@@ -20,6 +20,7 @@ require('lazy').setup {
   require 'plugins.lualine',
   require 'plugins.codecompanion',
   require 'plugins.opencode',
+  require 'plugins.amazonq',
   require 'plugins.treesitter',
   require 'plugins.gitsigns',
   require 'plugins.my-telescope',
