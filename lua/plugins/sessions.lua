@@ -1,3 +1,5 @@
+local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>S'
+
 return {
   -- Session management
   {
@@ -7,11 +9,11 @@ return {
       'BufWritePre',
     },
     keys = {
-      { '<leader>ss', '<cmd>AutoSession search<cr>', mode = { 'n', 'x' }, desc = 'Pick' },
-      { '<leader>sr', '<cmd>AutoSession restore<cr>', mode = { 'n', 'x' }, desc = 'Restore' },
-      { '<leader>sw', '<cmd>AutoSession save<cr>', mode = { 'n', 'x' }, desc = 'Save' },
-      { '<leader>sd', '<cmd>AutoSession delete<cr>', mode = { 'n', 'x' }, desc = 'Delete' },
-      { '<leader>st', '<cmd>AutoSession toggle<cr>', mode = { 'n', 'x' }, desc = 'Toggle Autosave' },
+      { mapping_key_prefix .. 's', '<cmd>AutoSession search<cr>', mode = { 'n', 'x' }, desc = 'Pick' },
+      { mapping_key_prefix .. 'r', '<cmd>AutoSession restore<cr>', mode = { 'n', 'x' }, desc = 'Restore' },
+      { mapping_key_prefix .. 'w', '<cmd>AutoSession save<cr>', mode = { 'n', 'x' }, desc = 'Save' },
+      { mapping_key_prefix .. 'd', '<cmd>AutoSession delete<cr>', mode = { 'n', 'x' }, desc = 'Delete' },
+      { mapping_key_prefix .. 't', '<cmd>AutoSession toggle<cr>', mode = { 'n', 'x' }, desc = 'Toggle Autosave' },
     },
     cmd = { 'AutoSession' },
     opts = {
