@@ -10,6 +10,22 @@ return {
       'nvimtools/none-ls-extras.nvim',
     },
     config = function()
+      -- Variable to track if auto-formatting is enabled or disabled
+      local format_on_save_enabled = true
+
+      -- The function to toggle the state of auto-formatting
+      local function toggle_autoformat()
+        format_on_save_enabled = not format_on_save_enabled
+        if format_on_save_enabled then
+          vim.notify('Auto-formatting on save: ENABLED', vim.log.levels.INFO)
+        else
+          vim.notify('Auto-formatting on save: DISABLED', vim.log.levels.WARN)
+        end
+      end
+
+      -- The keymap is now set here to call the toggle function
+      vim.keymap.set('n', '<leader>f', toggle_autoformat, { noremap = true, silent = true, desc = 'Toggle format on save' })
+
       local null_ls = require 'null-ls'
       local formatting = null_ls.builtins.formatting -- to setup formatters
       local diagnostics = null_ls.builtins.diagnostics -- to setup linters
@@ -51,7 +67,10 @@ return {
               group = augroup,
               buffer = bufnr,
               callback = function()
-                vim.lsp.buf.format { async = false }
+                -- Check the state variable before formatting
+                if format_on_save_enabled then
+                  vim.lsp.buf.format { async = false }
+                end
               end,
             })
           end
