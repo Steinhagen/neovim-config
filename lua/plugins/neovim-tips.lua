@@ -1,6 +1,9 @@
 return {
   'saxon1964/neovim-tips',
-  dependencies = { 'ibhagwan/fzf-lua' },
+  dependencies = {
+    'MunifTanjim/nui.nvim',
+    'MeanderingProgrammer/render-markdown.nvim',
+  },
   opts = {
     -- OPTIONAL: Location of user defined tips (default value shown below)
     user_file = vim.fn.stdpath 'config' .. '/lua/plugins/data/neovim-tips/user-tips.txt',
