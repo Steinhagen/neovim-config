@@ -44,5 +44,6 @@ require('lazy').setup {
   require 'plugins.image',
   require 'plugins.typst-preview',
   require 'plugins.triforce',
+  require 'plugins.zen-mode',
   require 'plugins.misc',
 }
