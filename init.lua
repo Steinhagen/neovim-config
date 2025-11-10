@@ -43,5 +43,6 @@ require('lazy').setup {
   require 'plugins.undo-glow',
   require 'plugins.image',
   require 'plugins.typst-preview',
+  require 'plugins.triforce',
   require 'plugins.misc',
 }
