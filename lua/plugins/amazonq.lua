@@ -1,7 +1,9 @@
 local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>a'
 
 return {
-  'awslabs/amazonq.nvim',
+  -- Until the server is selectable, use the personal fork that links to my preferred choice
+  -- 'awslabs/amazonq.nvim',
+  'Steinhagen/amazonq.nvim',
   cmd = 'AmazonQ',
   keys = {
     { mapping_key_prefix .. 'c', '<CMD>AmazonQ context<CR>', desc = 'Context' },
