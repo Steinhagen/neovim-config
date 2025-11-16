@@ -11,7 +11,7 @@ return {
     },
     config = function()
       -- Variable to track if auto-formatting is enabled or disabled
-      local format_on_save_enabled = true
+      local format_on_save_enabled = false
 
       -- The function to toggle the state of auto-formatting
       local function toggle_autoformat()

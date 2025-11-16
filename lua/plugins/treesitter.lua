@@ -1,5 +1,4 @@
 return {
-  -- Telescope for highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
