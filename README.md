@@ -112,10 +112,9 @@ packages = (
     haskell-language-server
     sumneko-lua-language-server
     elmPackages.elm-language-server
-    ansible-language-server
     bash-language-server
     vscode-langservers-extracted
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     python3Packages.python-lsp-server
     ruff
     tailwindcss-language-server
@@ -157,7 +156,6 @@ export NVIM_THEME_NAME='tokyonight'
 
 ### Editor Plugins and Configurations
 
-- **nvim-neo-tree/neo-tree.nvim** [neotree.lua](./lua/plugins/neotree.lua): Configures the NeoTree file explorer.
 - **nvim-treesitter/nvim-treesitter** [treesitter.lua](./lua/plugins/treesitter.lua): Configures the TreeSitter syntax highlighter.
 - **lukas-reineke/indent-blankline.nvim** [indent-blankline.lua](./lua/plugins/indent-blankline.lua): Configures the Indent Blankline plugin for displaying indentation levels.
 - **olimorris/codecompanion.nvim** [avante.lua](./lua/plugins/olimorris/codecompanion.lua): Configures the Code Companion plugin for interacting with different AI models.
@@ -165,7 +163,6 @@ export NVIM_THEME_NAME='tokyonight'
 
 ### UI Plugins
 
-- **akinsho/bufferline.nvim** [bufferline.lua](./lua/plugins/bufferline.lua): Configures the Bufferline plugin for enhanced buffer/tab display.
 - **nvim-lualine/lualine.nvim** [lualine.lua](./lua/plugins/lualine.lua): Configures the Lualine status line plugin.
 - **y3owk1n/undo-glow.nvim** [undo-glow.lua](./lua/plugins/undo-glow.lua): Adds a visual "glow" effect to your Neovim operations.
 - **3rd/image.nvim** [image.lua](./lua/plugins/image.lua): Render images directly inside the terminal.
