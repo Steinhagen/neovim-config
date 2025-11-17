@@ -53,8 +53,8 @@ return {
     }
 
     local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<leader>Gs', '<cmd>Gitsigns toggle_signs<CR>', vim.tbl_extend('force', opts, { desc = 'Git toggle signs' }))
-    vim.keymap.set('n', '<leader>Gl', '<cmd>Gitsigns blame_line<CR>', vim.tbl_extend('force', opts, { desc = 'Git blame line' }))
-    vim.keymap.set('n', '<leader>Gb', '<cmd>Gitsigns blame<CR>', vim.tbl_extend('force', opts, { desc = 'Git blame' }))
+    vim.keymap.set('n', '<leader>gg', '<cmd>Gitsigns toggle_signs<CR>', vim.tbl_extend('force', opts, { desc = 'Git toggle signs' }))
+    vim.keymap.set('n', '<leader>gM', '<cmd>Gitsigns blame_line<CR>', vim.tbl_extend('force', opts, { desc = 'Git blame line' }))
+    vim.keymap.set('n', '<leader>gm', '<cmd>Gitsigns blame<CR>', vim.tbl_extend('force', opts, { desc = 'Git blame' }))
   end,
 }

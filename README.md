@@ -180,8 +180,6 @@ export NVIM_THEME_NAME='tokyonight'
 ### Git
 
 - **lewis6991/gitsigns.nvim** [gitsigns.lua](./lua/plugins/gitsigns.lua): Configures the GitSigns plugin for displaying Git diff information.
-- **tpope/vim-fugitive** [misc.lua](./lua/plugins/misc.lua): Powerful Git integration for Vim.
-- **tpope/vim-rhubarb** [misc.lua](./lua/plugins/misc.lua): GitHub integration for vim-fugitive.
 
 ### Utils
 
