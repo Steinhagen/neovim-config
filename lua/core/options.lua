@@ -1,6 +1,5 @@
 vim.wo.number = true -- Make line numbers default (default: false)
 vim.o.relativenumber = true -- Set relative numbered lines (default: false)
-vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim (default: '')
 vim.o.guicursor = 'n-v-c-sm-i-ci-ve:block,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor' -- Blinking cursor
 vim.o.wrap = false -- Display lines as one long line (default: true)
 vim.o.linebreak = true -- Companion to wrap, don't split words (defaul: false)
@@ -45,3 +44,4 @@ vim.o.softtabstop = 4 -- Number of spaces that a tab counts for while performing
 vim.o.expandtab = true -- Convert tabs to spaces (default: false)
 vim.o.winborder = 'rounded' -- Add border to all floating windows
 require('vim._extui').enable {} -- Enable the experimental “extui” (extended UI) that reroutes and renders core UI elements
+require('utils.clipboard').init() -- Sync clipboard between OS and Neovim (default: '')
