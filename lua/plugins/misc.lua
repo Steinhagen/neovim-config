@@ -46,9 +46,4 @@ return {
       require('colorizer').setup()
     end,
   },
-  -- Telescope file browsing capabilities
-  {
-    'nvim-telescope/telescope-file-browser.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  },
 }

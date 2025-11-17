@@ -38,14 +38,7 @@ return {
       log_level = 'error', -- Sets the log level of the plugin (debug, info, warn, error).
 
       session_lens = {
-        load_on_setup = true, -- Initialize on startup (requires Telescope)
-        theme_conf = { -- Pass through for Telescope theme options
-          -- layout_config = { -- As one example, can change width/height of picker
-          --   width = 0.8,    -- percent of window
-          --   height = 0.5,
-          -- },
-        },
-        previewer = false, -- File preview for session picker
+        picker = "snacks",
 
         mappings = {
           -- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode

@@ -15,7 +15,6 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 require('lazy').setup {
-  require 'plugins.neotree',
   require 'plugins.colortheme',
   require 'plugins.lualine',
   require 'plugins.codecompanion',
@@ -23,14 +22,11 @@ require('lazy').setup {
   require 'plugins.amazonq',
   require 'plugins.treesitter',
   require 'plugins.gitsigns',
-  require 'plugins.my-telescope',
   require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.none-ls',
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
-  require 'plugins.remote-sshfs',
-  require 'plugins.remote-nvim',
   require 'plugins.conform',
   require 'plugins.toggleterm',
   require 'plugins.visual-whitespace',
@@ -45,5 +41,6 @@ require('lazy').setup {
   require 'plugins.typst-preview',
   require 'plugins.triforce',
   require 'plugins.zen-mode',
+  require 'plugins.snacks',
   require 'plugins.misc',
 }
