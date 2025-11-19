@@ -6,6 +6,12 @@ return {
   },
   config = function()
     vim.g.opencode_opts = {
+      provider = {
+        enabled = 'snacks', -- Default when `snacks.terminal` is enabled.
+        snacks = {
+          -- Customize `snacks.terminal` to your liking.
+        },
+      },
       -- Your configuration, if any — see `lua/opencode/config.lua`
     }
 
