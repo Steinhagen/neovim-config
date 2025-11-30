@@ -6,6 +6,10 @@ return {
         explorer = {
           win = {
             list = {
+              keys = {
+                -- disable terminal shortcut in Snacks explorer
+                ["<C-t>"] = false,
+              },
               wo = {
                 number = true,
                 relativenumber = true,
