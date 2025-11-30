@@ -1,11 +1,11 @@
-local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>A'
+local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>a'
 
 return {
   'olimorris/codecompanion.nvim',
   opts = {
     strategies = {
-      chat = { adapter = 'gemini' }, -- ollama_chat
-      inline = { adapter = 'gemini' }, -- ollama_inline,
+      chat = { adapter = 'ollama_chat' }, -- gemini
+      inline = { adapter = 'ollama_inline' }, -- gemini,
     },
 
     adapters = {
