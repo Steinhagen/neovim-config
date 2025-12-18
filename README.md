@@ -12,11 +12,16 @@ This repository contains my personal Neovim configuration intented to be usually
 4. tmux with image support enabled. To do that make sure you have the following configuration enabled:
 
 ```tmux
+# Default configuration
 set -g default-terminal "tmux-256color"
 set -gq allow-passthrough on
 set -ga update-environment TERM
 set -ga update-environment TERM_PROGRAM
 set -g visual-activity off
+
+# Allow OSC52
+set -s set-clipboard on
+set -as terminal-overrides ',*:Ms=\E]52;%p1%s;%p2%s\007'
 ```
 
 ## How to use
