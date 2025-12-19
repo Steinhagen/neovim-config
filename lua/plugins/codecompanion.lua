@@ -37,7 +37,6 @@ return {
             },
             schema = {
               model = {
-                -- choose one of: gemini-2.0-flash, gemini-2.0-pro, 2.5, etc.
                 default = 'gemini-3-flash-preview',
               },
             },
