@@ -104,6 +104,7 @@ return {
       -- - filetypes (table): Override the default list of associated filetypes for the server
       -- - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       -- - settings (table): Override the default settings passed when initializing the server.
+      local gcc_path = vim.fn.exepath('gcc')
       local servers = {
         ansiblels = {},
         bashls = {},
@@ -111,8 +112,8 @@ return {
           cmd = {
             'clangd',
             '--background-index',
-            '--query-driver',
-            '$(whereis gcc | cut -d " " -f 2)',
+            '--pch-storage=memory',
+            '--query-driver=' .. gcc_path,
           },
         },
         cmake = {},
