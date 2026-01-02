@@ -27,8 +27,8 @@ return {
       vim.keymap.set('n', '<leader>f', toggle_autoformat, { noremap = true, silent = true, desc = 'Toggle format on save' })
 
       local null_ls = require 'null-ls'
+      local util = require 'lspconfig.util'
       local formatting = null_ls.builtins.formatting -- to setup formatters
-      local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
       if not utils.is_nixos() then
         -- Formatters & linters for mason to install
@@ -38,15 +38,25 @@ return {
             'eslint_d', -- ts/js linter
             'shfmt', -- Shell formatter
             'checkmake', -- linter for Makefiles
-            -- 'stylua', -- lua formatter; Already installed via Mason
-            -- 'ruff', -- Python linter and formatter; Already installed via Mason
           },
           automatic_installation = true,
         }
       end
 
       local sources = {
-        diagnostics.checkmake,
+        null_ls.builtins.diagnostics.checkmake.with {
+          -- Dynamically find the config file in the project root
+          extra_args = function(params)
+            -- Find the root directory containing .git
+            local root = util.root_pattern '.git'(params.bufname) or vim.loop.cwd()
+            local config_file = root .. '/.checkmake.ini'
+            -- Only add the flag if the file actually exists
+            if vim.fn.filereadable(config_file) == 1 then
+              return { '--config', config_file }
+            end
+            return {}
+          end,
+        },
         formatting.prettier.with { filetypes = { 'html', 'json', 'yaml', 'markdown' } },
         formatting.stylua,
         formatting.shfmt.with { args = { '-i', '4' } },
