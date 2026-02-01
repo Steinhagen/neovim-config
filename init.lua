@@ -36,6 +36,7 @@ require('lazy').setup {
   require 'plugins.nvim-dap-view',
   require 'plugins.nvim-regexplainer',
   require 'plugins.nvim-ufo',
+  require 'plugins.pj',
   require 'plugins.undo-glow',
   require 'plugins.image',
   require 'plugins.typst-preview',
