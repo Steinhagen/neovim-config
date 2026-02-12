@@ -4,8 +4,8 @@ return {
   'olimorris/codecompanion.nvim',
   opts = {
     strategies = {
-      chat = { adapter = 'gemini' },
-      inline = { adapter = 'gemini' },
+      chat = { adapter = 'kiro' },
+      inline = { adapter = 'kiro' },
     },
 
     adapters = {
@@ -59,7 +59,7 @@ return {
             'markdown',
             'markdown_inline',
             'yaml',
-          }, { summary = true, max_jobs = 10 })
+          }, { summary = false, max_jobs = 10 })
           :wait(1800000)
       end,
     },

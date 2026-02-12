@@ -42,7 +42,7 @@ If you are using a non-NixOS distribution, the Mason configuration should be ena
 
 ```bash
 echo "1. Install all needed packages for basic functionality..."
-sudo apt install -y cmake nodejs npm python3 python3-pip python3-venv clang ripgrep imagemagick tmux fd-find
+sudo apt install -y cmake nodejs npm python3 python3-pip python3-venv clang ripgrep imagemagick tmux fd-find tree-sitter-cli
 
 echo "2. Install all packages for the complete GUI functionality..."
 curl -fsSL https://download.opensuse.org/repositories/home:clayrisser:sid/Debian_Unstable/Release.key | gpg --dearmor | sudo tee /etc/apt/keyrings/home_clayrisser_sid.gpg > /dev/null
@@ -62,7 +62,7 @@ sudo apt install -y ghostty
 
 ```bash
 echo "1. Install all needed packages for basic functionality..."
-sudo dnf install -y cmake nodejs npm python3 python3-pip clang ripgrep ImageMagick tmux
+sudo dnf install -y cmake nodejs npm python3 python3-pip clang ripgrep ImageMagick tmux tree-sitter-cli
 
 echo "2. Install all packages for the complete GUI functionality..."
 sudo dnf copr enable alternateved/ghostty
@@ -103,6 +103,7 @@ packages = (
     imagemagick
     typst
     fzf
+    tree-sitter
 
     # Language servers
     prettier
