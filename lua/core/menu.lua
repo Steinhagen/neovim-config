@@ -11,6 +11,7 @@ vim.cmd [[
   anoremenu PopUp.Close\ Pane       <cmd>close<CR>
   amenu PopUp.-3-                   <NOP>
   anoremenu PopUp.Toggle\ Explorer  <cmd>lua Snacks.explorer()<CR>
+  anoremenu PopUp.AI\ Chat          <cmd>CodeCompanionChat Toggle<CR>
   anoremenu PopUp.Buffers           <cmd>lua Snacks.picker.buffers()<CR>
   amenu PopUp.-4-                   <NOP>
   nnoremenu PopUp.Back              <C-t>
