@@ -48,7 +48,21 @@ return {
 
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-treesitter/nvim-treesitter',
+    {
+      'nvim-treesitter/nvim-treesitter',
+      lazy = false,
+      build = ':TSUpdate',
+      config = function()
+        require('nvim-treesitter')
+          .install({
+            'lua',
+            'markdown',
+            'markdown_inline',
+            'yaml',
+          }, { summary = true, max_jobs = 10 })
+          :wait(1800000)
+      end,
+    },
     {
       'echasnovski/mini.diff',
       config = function()
