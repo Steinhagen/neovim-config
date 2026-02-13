@@ -2,6 +2,7 @@ local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>a'
 
 return {
   'olimorris/codecompanion.nvim',
+  lazy = false,
   opts = {
     strategies = {
       chat = { adapter = 'kiro' },
