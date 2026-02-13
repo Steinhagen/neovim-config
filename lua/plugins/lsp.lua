@@ -158,6 +158,7 @@ return {
             },
           },
         },
+        puppet_editor_services = {},
         ruff = {},
         -- sqlls = {},
         tailwindcss = {},
