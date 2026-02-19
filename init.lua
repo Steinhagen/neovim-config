@@ -21,6 +21,7 @@ require('lazy').setup {
   require 'plugins.opencode',
   require 'plugins.treesitter',
   require 'plugins.gitsigns',
+  -- require 'plugins.apidocs',
   require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.none-ls',
