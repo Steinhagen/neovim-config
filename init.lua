@@ -38,6 +38,7 @@ require('lazy').setup {
   require 'plugins.nvim-ufo',
   require 'plugins.pj',
   require 'plugins.undo-glow',
+  require 'plugins.vim-tmux-navigator',
   require 'plugins.image',
   require 'plugins.typst-preview',
   require 'plugins.triforce',
