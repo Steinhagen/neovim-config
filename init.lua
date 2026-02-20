@@ -42,7 +42,7 @@ require('lazy').setup {
   require 'plugins.vim-tmux-navigator',
   require 'plugins.image',
   require 'plugins.typst-preview',
-  require 'plugins.triforce',
+  -- require 'plugins.triforce',
   require 'plugins.snacks',
   require 'plugins.misc',
 }
