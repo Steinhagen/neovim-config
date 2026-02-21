@@ -16,14 +16,16 @@ rtp:prepend(lazypath)
 
 -- Load plugins using the default 'pack' package manager
 require 'plugins.image'
+require 'plugins.snacks'
+require 'plugins.pj' -- depends on 'snacks'
+require 'plugins.opencode' -- depends on 'snacks'
+require 'plugins.treesitter'
 
 -- Load plugins using the 'lazy' package manager
 require('lazy').setup({
   require 'plugins.colortheme',
   require 'plugins.lualine',
   require 'plugins.codecompanion',
-  require 'plugins.opencode',
-  require 'plugins.treesitter',
   require 'plugins.gitsigns',
   require 'plugins.lsp',
   require 'plugins.autocompletion',
@@ -40,11 +42,9 @@ require('lazy').setup({
   require 'plugins.nvim-dap-view',
   require 'plugins.nvim-regexplainer',
   require 'plugins.nvim-ufo',
-  require 'plugins.pj',
   require 'plugins.undo-glow',
   require 'plugins.vim-tmux-navigator',
   require 'plugins.typst-preview',
-  require 'plugins.snacks',
   require 'plugins.misc',
 }, {
   -- By default, lazy.nvim takes full control of Neovim's runtime path (RTP) and

@@ -3,6 +3,22 @@
     "image.nvim": {
       "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
       "src": "https://github.com/3rd/image.nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "dc42c209f3820bdfaae0956f15de29689aa6b451",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "opencode.nvim": {
+      "rev": "6d00f3094af83748f94224647f62a215bca6a920",
+      "src": "https://github.com/NickvanDyke/opencode.nvim"
+    },
+    "pj.nvim": {
+      "rev": "9300502e96b46df8d1eb32e99dae558cb20dc9ce",
+      "src": "https://github.com/josephschmitt/pj.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
+      "src": "https://github.com/folke/snacks.nvim"
     }
   }
 }

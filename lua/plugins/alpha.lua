@@ -26,7 +26,8 @@ return {
       dashboard.button('t', '󰺮  Find text', '<cmd>lua Snacks.picker.grep({ live = true })<CR>'),
       dashboard.button('sr', '󰁯  Restore session', '<cmd>AutoSession restore<CR>'),
       dashboard.button('sl', '  List sessions', '<cmd>AutoSession search<CR>'),
-      dashboard.button('u', '  Update plugins', '<cmd>Lazy update<CR>'),
+      dashboard.button('ul', '󱑢  Update lazy plugins', '<cmd>Lazy update<CR>'),
+      dashboard.button('up', '󱑤  Update pack plugins', '<cmd>lua vim.pack.update()<CR>'),
       dashboard.button('q', '󰈆  Quit', '<cmd>qa<CR>'),
     }
 
