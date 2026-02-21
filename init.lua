@@ -21,7 +21,6 @@ require('lazy').setup {
   require 'plugins.opencode',
   require 'plugins.treesitter',
   require 'plugins.gitsigns',
-  -- require 'plugins.apidocs',
   require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.none-ls',
@@ -42,7 +41,6 @@ require('lazy').setup {
   require 'plugins.vim-tmux-navigator',
   require 'plugins.image',
   require 'plugins.typst-preview',
-  -- require 'plugins.triforce',
   require 'plugins.snacks',
   require 'plugins.misc',
 }
