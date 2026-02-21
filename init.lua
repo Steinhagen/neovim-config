@@ -15,6 +15,7 @@ local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
 -- Load plugins using the default 'pack' package manager
+require 'plugins.alpha'
 require 'plugins.image'
 require 'plugins.lsp'
 require 'plugins.nvim-dap-view'
@@ -35,7 +36,6 @@ require('lazy').setup({
   require 'plugins.gitsigns',
   require 'plugins.autocompletion',
   require 'plugins.none-ls',
-  require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.conform',
   require 'plugins.visual-whitespace',
