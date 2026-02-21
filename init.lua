@@ -18,6 +18,7 @@ rtp:prepend(lazypath)
 require 'plugins.alpha'
 require 'plugins.image'
 require 'plugins.lsp'
+require 'plugins.none-ls' -- depends on lsp
 require 'plugins.nvim-dap-view'
 require 'plugins.snacks'
 require 'plugins.pj' -- depends on 'snacks'
@@ -35,7 +36,6 @@ require('lazy').setup({
   require 'plugins.codecompanion',
   require 'plugins.gitsigns',
   require 'plugins.autocompletion',
-  require 'plugins.none-ls',
   require 'plugins.indent-blankline',
   require 'plugins.conform',
   require 'plugins.visual-whitespace',
