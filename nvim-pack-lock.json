@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "image.nvim": {
+      "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
+      "src": "https://github.com/3rd/image.nvim"
+    }
+  }
+}

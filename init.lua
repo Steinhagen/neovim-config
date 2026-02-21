@@ -14,7 +14,11 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
-require('lazy').setup {
+-- Load plugins using the default 'pack' package manager
+require 'plugins.image'
+
+-- Load plugins using the 'lazy' package manager
+require('lazy').setup({
   require 'plugins.colortheme',
   require 'plugins.lualine',
   require 'plugins.codecompanion',
@@ -39,8 +43,19 @@ require('lazy').setup {
   require 'plugins.pj',
   require 'plugins.undo-glow',
   require 'plugins.vim-tmux-navigator',
-  require 'plugins.image',
   require 'plugins.typst-preview',
   require 'plugins.snacks',
   require 'plugins.misc',
-}
+}, {
+  -- By default, lazy.nvim takes full control of Neovim's runtime path (RTP) and
+  -- deletes the default directories where Neovim 0.12's vim.pack installs things.
+  -- Setting reset = false tells Lazy to leave those default paths alone so
+  -- vim.pack can safely load image.nvim right after Lazy finishes.
+
+  performance = {
+    rtp = {
+      reset = false,
+    },
+    reset_packpath = false,
+  },
+})
