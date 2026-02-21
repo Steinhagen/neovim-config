@@ -1,13 +1,12 @@
-return {
-  'akinsho/toggleterm.nvim',
-  config = function()
-    require('toggleterm').setup {
-      open_mapping = [[<C-\>]],
-      start_in_insert = true,
-      direction = 'float',
-      float_opts = {
-        border = 'curved',
-      },
-    }
-  end,
-}
+vim.pack.add({
+  "https://github.com/akinsho/toggleterm.nvim"
+}, { confirm = false })
+
+require('toggleterm').setup({
+  open_mapping = [[<C-\>]],
+  start_in_insert = true,
+  direction = 'float',
+  float_opts = {
+    border = 'curved',
+  },
+})

@@ -4,6 +4,18 @@
       "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
       "src": "https://github.com/3rd/image.nvim"
     },
+    "mini.icons": {
+      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
+      "src": "https://github.com/echasnovski/mini.icons"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-regexplainer": {
+      "rev": "78257e4ade22ddcc74dc18b67444e8da079ee7ec",
+      "src": "https://github.com/bennypowers/nvim-regexplainer"
+    },
     "nvim-treesitter": {
       "rev": "dc42c209f3820bdfaae0956f15de29689aa6b451",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -16,9 +28,21 @@
       "rev": "9300502e96b46df8d1eb32e99dae558cb20dc9ce",
       "src": "https://github.com/josephschmitt/pj.nvim"
     },
+    "render-markdown.nvim": {
+      "rev": "48b4175dbca8439d30c1f52231cbe5a712c8f9d9",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "snacks.nvim": {
       "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "toggleterm.nvim": {
+      "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
+      "src": "https://github.com/akinsho/toggleterm.nvim"
+    },
+    "vim-tmux-navigator": {
+      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
     }
   }
 }

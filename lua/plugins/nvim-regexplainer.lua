@@ -1,13 +1,11 @@
-return {
-  'bennypowers/nvim-regexplainer',
-  dependencies = {
-    { 'nvim-treesitter/nvim-treesitter' },
-    { 'MunifTanjim/nui.nvim' },
-  },
-  event = { 'BufRead' },
-  config = function()
-    require('regexplainer').setup {
-      -- automatically show the explainer when the cursor enters a regexp
+vim.pack.add({
+  "https://github.com/MunifTanjim/nui.nvim",
+  "https://github.com/bennypowers/nvim-regexplainer"
+}, { confirm = false })
+
+vim.api.nvim_create_autocmd("BufRead", {
+  callback = function()
+    require('regexplainer').setup({
       auto = true,
       display = 'popup',
       popup = {
@@ -16,6 +14,7 @@ return {
           style = 'rounded',
         },
       },
-    }
+    })
   end,
-}
+  once = true, -- this ensures the setup only runs the very first time you read a buffer
+})

@@ -19,7 +19,11 @@ require 'plugins.image'
 require 'plugins.snacks'
 require 'plugins.pj' -- depends on 'snacks'
 require 'plugins.opencode' -- depends on 'snacks'
+require 'plugins.toggleterm'
 require 'plugins.treesitter'
+require 'plugins.nvim-regexplainer' -- depends on treesitter
+require 'plugins.render-markdown' -- depends on treesitter
+require 'plugins.vim-tmux-navigator'
 
 -- Load plugins using the 'lazy' package manager
 require('lazy').setup({
@@ -33,17 +37,13 @@ require('lazy').setup({
   require 'plugins.alpha',
   require 'plugins.indent-blankline',
   require 'plugins.conform',
-  require 'plugins.toggleterm',
   require 'plugins.visual-whitespace',
   require 'plugins.tiny-inline-diagnostic',
-  require 'plugins.render-markdown',
   require 'plugins.sessions',
   require 'plugins.neovim-tips',
   require 'plugins.nvim-dap-view',
-  require 'plugins.nvim-regexplainer',
   require 'plugins.nvim-ufo',
   require 'plugins.undo-glow',
-  require 'plugins.vim-tmux-navigator',
   require 'plugins.typst-preview',
   require 'plugins.misc',
 }, {
