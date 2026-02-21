@@ -19,6 +19,7 @@ require 'plugins.image'
 require 'plugins.snacks'
 require 'plugins.pj' -- depends on 'snacks'
 require 'plugins.opencode' -- depends on 'snacks'
+require 'plugins.lsp'
 require 'plugins.toggleterm'
 require 'plugins.treesitter'
 require 'plugins.nvim-regexplainer' -- depends on treesitter
@@ -31,7 +32,6 @@ require('lazy').setup({
   require 'plugins.lualine',
   require 'plugins.codecompanion',
   require 'plugins.gitsigns',
-  require 'plugins.lsp',
   require 'plugins.autocompletion',
   require 'plugins.none-ls',
   require 'plugins.alpha',

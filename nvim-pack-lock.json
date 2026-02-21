@@ -1,8 +1,28 @@
 {
   "plugins": {
+    "cmp-nvim-lsp": {
+      "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
+      "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
+    },
+    "fidget.nvim": {
+      "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
+      "src": "https://github.com/j-hui/fidget.nvim"
+    },
     "image.nvim": {
       "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
       "src": "https://github.com/3rd/image.nvim"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "21c2a84ce368e99b18f52ab348c4c02c32c02fcf",
+      "src": "https://github.com/williamboman/mason-lspconfig.nvim"
+    },
+    "mason-tool-installer.nvim": {
+      "rev": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
+    "mason.nvim": {
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+      "src": "https://github.com/williamboman/mason.nvim"
     },
     "mini.icons": {
       "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
@@ -11,6 +31,10 @@
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
       "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "5a855bcfec7973767a1a472335684bbd71d2fa2b",
+      "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-regexplainer": {
       "rev": "78257e4ade22ddcc74dc18b67444e8da079ee7ec",
