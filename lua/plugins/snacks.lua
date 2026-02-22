@@ -3,12 +3,12 @@ vim.pack.add({
 }, { confirm = false })
 
 require('snacks').setup {
-  dashboard = require 'plugins.snacks.dashboard-opt',
+  dashboard = require 'plugins.opts.snacks.dashboard',
   explorer = {},
   git = {},
-  image = require 'plugins.snacks.image-opt',
+  image = require 'plugins.opts.snacks.image',
   input = { enabled = true }, -- needed for opencode
-  picker = require 'plugins.snacks.picker-opt',
+  picker = require 'plugins.opts.snacks.picker',
 }
 
 local map = vim.keymap.set
