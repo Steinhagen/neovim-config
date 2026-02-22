@@ -3,6 +3,7 @@ vim.pack.add({
 }, { confirm = false })
 
 require('snacks').setup {
+  dashboard = require 'plugins.snacks.dashboard-opt',
   explorer = {},
   git = {},
   image = require 'plugins.snacks.image-opt',
