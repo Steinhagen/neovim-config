@@ -1,25 +1,24 @@
 return {
-  'saxon1964/neovim-tips',
+  "saxon1964/neovim-tips",
+  lazy = true, -- Load only when keybinds are triggered
   dependencies = {
-    'MunifTanjim/nui.nvim',
-    'MeanderingProgrammer/render-markdown.nvim',
+    "MunifTanjim/nui.nvim",
+    "MeanderingProgrammer/render-markdown.nvim", -- Clean rendering
+    -- "OXY2DEV/markview.nvim", -- Rich rendering with advanced features
   },
   opts = {
-    -- OPTIONAL: Location of user defined tips (default value shown below)
     user_file = vim.fn.stdpath 'config' .. '/lua/plugins/data/neovim-tips/user-tips.txt',
-    -- OPTIONAL: Show warnings when user tips conflict with builtin (default: true)
-    user_tip_prefix = '[User] ',
-    -- OPTIONAL: Show warnings when user tips conflict with builtin (default: true)
-    warn_on_conflicts = true,
-    -- OPTIONAL: Daily tip mode: 0 = off, 1 = once per day, 2 = every startup
-    daily_tip = 0,
+    -- Daily tip DOES NOT WORK with lazy = true
+    daily_tip = 0, -- 0 = off, 1 = once per day, 2 = every startup
+    quiet = true,
+    bookmark_symbol = "🌟 ",
   },
-  init = function()
-    local map = vim.keymap.set
-    map('n', '<leader>nto', ':NeovimTips<CR>', { desc = 'Neovim tips', noremap = true, silent = true })
-    map('n', '<leader>nte', ':NeovimTipsEdit<CR>', { desc = 'Edit your Neovim tips', noremap = true, silent = true })
-    map('n', '<leader>nta', ':NeovimTipsAdd<CR>', { desc = 'Add your Neovim tip', noremap = true, silent = true })
-    map('n', '<leader>ntr', ':NeovimTipsRandom<CR>', { desc = 'Neovim random tip', noremap = true, silent = true })
-    map('n', '<leader>nth', ':NeovimTipsHelp<CR>', { desc = 'Neovim tips user guide', noremap = true, silent = true })
-  end,
+  keys = {
+    { "<leader>nto", ":NeovimTips<CR>", desc = "Neovim tips" },
+    { "<leader>ntb", ":NeovimTipsBookmarks<CR>", desc = "Bookmarked tips" },
+    { "<leader>ntr", ":NeovimTipsRandom<CR>", desc = "Show random tip" },
+    { "<leader>nte", ":NeovimTipsEdit<CR>", desc = "Edit your tips" },
+    { "<leader>nta", ":NeovimTipsAdd<CR>", desc = "Add your tip" },
+    { "<leader>ntp", ":NeovimTipsPdf<CR>", desc = "Open tips PDF" },
+  },
 }

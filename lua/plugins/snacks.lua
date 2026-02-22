@@ -22,14 +22,14 @@ map("n", "<leader>:", function() Snacks.picker.command_history() end, { desc = "
 map("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History" })
 map("n", "<leader>e", function() Snacks.explorer() end, { desc = "File Explorer" })
 
--- find
+-- Find
 map("n", "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find Config File" })
 map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find Files" })
 map("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
 map("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
 map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
 
--- git
+-- Git
 map("n", "<leader>gb", function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
 map("n", "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
 map("n", "<leader>gL", function() Snacks.picker.git_log_line() end, { desc = "Git Log Line" })
@@ -39,13 +39,13 @@ map("n", "<leader>gh", function() Snacks.picker.git_diff() end, { desc = "Git Di
 map("n", "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Log File" })
 map("n", "<leader>gB", function() Snacks.git.blame_line() end, { desc = "Git Blame Line" })
 
--- grep
+-- Grep
 map("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
 map("n", "<leader>sB", function() Snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
 map("n", "<leader>sg", function() Snacks.picker.grep() end, { desc = "Grep" })
 map({ "n", "x" }, "<leader>sw", function() Snacks.picker.grep_word() end, { desc = "Visual selection or word" })
 
--- search
+-- Search
 map("n", '<leader>s"', function() Snacks.picker.registers() end, { desc = "Registers" })
 map("n", '<leader>s/', function() Snacks.picker.search_history() end, { desc = "Search History" })
 map("n", "<leader>sa", function() Snacks.picker.autocmds() end, { desc = "Autocmds" })

@@ -7,13 +7,13 @@ return {
   {
     -- Hints keybinds
     'folke/which-key.nvim',
+    event = 'VeryLazy',
   },
   {
     -- Autoclose parentheses, brackets, quotes, etc.
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = true,
-    opts = {},
   },
   {
     -- Highlight todo, notes, etc in comments
