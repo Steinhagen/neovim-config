@@ -3,6 +3,7 @@ vim.pack.add({
 }, { confirm = false })
 
 require('snacks').setup {
+  bigfile = require 'plugins.opts.snacks.bigfile',
   dashboard = require 'plugins.opts.snacks.dashboard',
   explorer = {},
   git = {},
