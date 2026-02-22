@@ -29,11 +29,4 @@ return {
       require('colorizer').setup()
     end,
   },
-  {
-    -- Zen mode for codding
-    'folke/zen-mode.nvim',
-    keys = {
-      { '<leader>Z', '<cmd>ZenMode<cr>', mode = { 'n', 'x' }, desc = 'Toggle Zen Mode' },
-    },
-  }
 }

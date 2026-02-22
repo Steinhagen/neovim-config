@@ -9,6 +9,7 @@ require('snacks').setup {
   image = require 'plugins.opts.snacks.image',
   input = { enabled = true }, -- needed for opencode
   picker = require 'plugins.opts.snacks.picker',
+  zen = require 'plugins.opts.snacks.zen',
 }
 
 local map = vim.keymap.set
@@ -75,3 +76,6 @@ map("n", "gai", function() Snacks.picker.lsp_incoming_calls() end, { desc = "C[a
 map("n", "gao", function() Snacks.picker.lsp_outgoing_calls() end, { desc = "C[a]lls Outgoing" })
 map("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
 map("n", "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "LSP Workspace Symbols" })
+
+-- Other
+map({ "n", "x" }, "<leader>Z",  function() Snacks.zen() end, { desc = "Toggle Zen Mode" })
