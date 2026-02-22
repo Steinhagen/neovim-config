@@ -28,7 +28,7 @@
   "typst-preview.nvim": { "branch": "master", "commit": "bf5d5eaf23bbfcca9f98a24ed29bd084abf89bf2" },
   "undo-glow.nvim": { "branch": "main", "commit": "25314a94cdfd84a3ca62bada1f88ed00982659ac" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
-  "visual-whitespace.nvim": { "branch": "main", "commit": "2eefcbcbe294ea6610868755db7ddb8f92f68a1c" },
+  "visual-whitespace.nvim": { "branch": "main", "commit": "49ff2b1c572ed7033a584381fa23aad2bf3bb258" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
   "zen-mode.nvim": { "branch": "main", "commit": "8564ce6d29ec7554eb9df578efa882d33b3c23a7" }
 }

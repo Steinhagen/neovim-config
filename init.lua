@@ -16,7 +16,6 @@ rtp:prepend(lazypath)
 
 -- Load plugins using the default 'pack' package manager
 require 'plugins.alpha'
-require 'plugins.image'
 require 'plugins.lsp'
 require 'plugins.none-ls' -- depends on lsp
 require 'plugins.nvim-dap-view'
