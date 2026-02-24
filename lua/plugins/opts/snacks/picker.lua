@@ -13,5 +13,25 @@ return {
         },
       },
     },
+    files = {
+      win = {
+        list = {
+          wo = {
+            number = true,
+            relativenumber = true,
+          },
+        },
+      },
+    },
+    grep = {
+      win = {
+        list = {
+          wo = {
+            number = true,
+            relativenumber = true,
+          },
+        },
+      },
+    },
   },
 }
