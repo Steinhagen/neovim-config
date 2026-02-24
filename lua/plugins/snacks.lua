@@ -8,7 +8,6 @@ require('snacks').setup {
   explorer = {},
   git = {},
   image = require 'plugins.opts.snacks.image',
-  input = { enabled = true }, -- needed for opencode
   picker = require 'plugins.opts.snacks.picker',
   zen = require 'plugins.opts.snacks.zen',
 }

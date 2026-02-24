@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "alpha-nvim": {
-      "rev": "a9d8fb72213c8b461e791409e7feabb74eb6ce73",
-      "src": "https://github.com/goolord/alpha-nvim"
-    },
     "cmp-nvim-lsp": {
       "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
@@ -11,10 +7,6 @@
     "fidget.nvim": {
       "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
       "src": "https://github.com/j-hui/fidget.nvim"
-    },
-    "image.nvim": {
-      "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
-      "src": "https://github.com/3rd/image.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "6c4830e37743b060d13c9269394176aea6a0fbc8",
@@ -67,14 +59,6 @@
     "nvim-treesitter": {
       "rev": "d660b7c002f3922b6bb3da47206645488a698426",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
-    "nvim-web-devicons": {
-      "rev": "746ffbb17975ebd6c40142362eee1b0249969c5c",
-      "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
-    "opencode.nvim": {
-      "rev": "82332cf924458dc9b6fcaecf25f52111544a1663",
-      "src": "https://github.com/NickvanDyke/opencode.nvim"
     },
     "pj.nvim": {
       "rev": "9300502e96b46df8d1eb32e99dae558cb20dc9ce",

@@ -20,7 +20,6 @@ require 'plugins.none-ls' -- depends on lsp
 require 'plugins.nvim-dap-view'
 require 'plugins.snacks'
 require 'plugins.pj' -- depends on 'snacks'
-require 'plugins.opencode' -- depends on 'snacks'
 require 'plugins.toggleterm'
 require 'plugins.treesitter'
 require 'plugins.nvim-regexplainer' -- depends on treesitter

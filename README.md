@@ -84,9 +84,6 @@ rm -rf "$HOME/.local/share/nvim" "$HOME/.local/state/nvim" "$HOME/.cache/nvim" "
 
 echo "3. Get the latest personal nvim configuration..."
 git clone https://github.com/Steinhagen/neovim-config $HOME/.config/nvim
-
-echo "4. Install other packages that we depend on..."
-sudo npm i -g opencode-ai@latest
 ```
 
 Since Mason doesn't work for NixOS, we need to provide all LSPs that we are using ourselves.
@@ -99,7 +96,6 @@ packages = (
   [
     # Application packages
     ghostty
-    opencode
     imagemagick
     typst
     fzf
