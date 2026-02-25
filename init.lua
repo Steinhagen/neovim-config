@@ -14,6 +14,18 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+-- Load plugins using the default 'pack' package manager
+require 'plugins.lsp'
+require 'plugins.none-ls' -- depends on lsp
+require 'plugins.nvim-dap-view'
+require 'plugins.snacks'
+require 'plugins.pj' -- depends on 'snacks'
+require 'plugins.toggleterm'
+require 'plugins.treesitter'
+require 'plugins.nvim-regexplainer' -- depends on treesitter
+require 'plugins.render-markdown' -- depends on treesitter
+require 'plugins.vim-tmux-navigator'
+
 -- Load plugins using the 'lazy' package manager
 require('lazy').setup({
   require 'plugins.colortheme',
@@ -44,15 +56,3 @@ require('lazy').setup({
     reset_packpath = false,
   },
 })
-
--- Load plugins using the default 'pack' package manager
-require 'plugins.lsp'
-require 'plugins.none-ls' -- depends on lsp
-require 'plugins.nvim-dap-view'
-require 'plugins.snacks'
-require 'plugins.pj' -- depends on 'snacks'
-require 'plugins.toggleterm'
-require 'plugins.treesitter'
-require 'plugins.nvim-regexplainer' -- depends on treesitter
-require 'plugins.render-markdown' -- depends on treesitter
-require 'plugins.vim-tmux-navigator'
