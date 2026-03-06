@@ -6,8 +6,6 @@ require 'core.keymaps'
 require 'plugins.lsp'
 require 'plugins.none-ls' -- depends on lsp
 require 'plugins.nvim-dap-view'
-require 'plugins.snacks'
-require 'plugins.pj' -- depends on 'snacks'
 require 'plugins.toggleterm'
 require 'plugins.treesitter'
 require 'plugins.nvim-regexplainer' -- depends on treesitter
@@ -56,3 +54,6 @@ require('lazy').setup({
     reset_packpath = false,
   },
 })
+
+-- Load snacks last so that the dashboard know all loading times
+require 'plugins.snacks'
