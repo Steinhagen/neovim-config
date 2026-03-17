@@ -9,7 +9,7 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "a324581a3c83fdacdb9804b79de1cbe00ce18550",
+      "rev": "a676ab7282da8d651e175118bcf54483ca11e46d",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
     },
     "mason-null-ls.nvim": {
@@ -29,11 +29,11 @@
       "src": "https://github.com/echasnovski/mini.icons"
     },
     "none-ls-extras.nvim": {
-      "rev": "517f87c1e6cd511e787d77127d7fdb12b7b79db3",
+      "rev": "c6fa39ac52814182c05552cb5d3750cae23ff0f0",
       "src": "https://github.com/nvimtools/none-ls-extras.nvim"
     },
     "none-ls.nvim": {
-      "rev": "f61f46ded0ca9edce7a09b674f8e162d10921426",
+      "rev": "c9317c2a8629d4e39e7cf47be74cb67f3ab37cda",
       "src": "https://github.com/nvimtools/none-ls.nvim"
     },
     "nui.nvim": {
@@ -45,11 +45,11 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "4f9069096f5616f12a73b9287586d21eb1e4fdb0",
+      "rev": "af144cfbdeafd90dfdaa3d406e3f8e06ddc4f0e3",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "2163c54bb6cfec53e3e555665ada945b8c8331b9",
+      "rev": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-regexplainer": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/bennypowers/nvim-regexplainer"
     },
     "nvim-treesitter": {
-      "rev": "5cb05e1b0fa3c469958a2b26f36b3fe930af221c",
+      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -65,11 +65,11 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "907505549edc2f90c82fc429348af03ee8c3a825",
+      "rev": "e3c18ddd27a853f85a6f513a864cf4f2982b9f26",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
-      "rev": "9912042fc8bca2209105526ac7534e9a0c2071b2",
+      "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "toggleterm.nvim": {
