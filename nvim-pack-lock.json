@@ -9,7 +9,7 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "a676ab7282da8d651e175118bcf54483ca11e46d",
+      "rev": "38499e0bda64bc0f3ec6e7f03f8e13dd11c0fa00",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
     },
     "mason-null-ls.nvim": {
@@ -41,7 +41,7 @@
       "src": "https://github.com/MunifTanjim/nui.nvim"
     },
     "nvim-dap": {
-      "rev": "a9d8cb68ee7184111dc66156c4a2ebabfbe01bc5",
+      "rev": "2a8799ad91a1495c6bdf753f9b2179b3ff0f5bba",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
@@ -49,7 +49,7 @@
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "702f69fb167e9119f14adc4dfd4fcadf4d1b07a0",
+      "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-regexplainer": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/bennypowers/nvim-regexplainer"
     },
     "nvim-treesitter": {
-      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
+      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -69,7 +69,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "snacks.nvim": {
-      "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
+      "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "toggleterm.nvim": {
