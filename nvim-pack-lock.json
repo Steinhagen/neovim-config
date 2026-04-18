@@ -25,7 +25,7 @@
       "src": "https://github.com/williamboman/mason.nvim"
     },
     "mini.icons": {
-      "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
+      "rev": "bac6317300e205335df425296570d84322730067",
       "src": "https://github.com/echasnovski/mini.icons"
     },
     "none-ls-extras.nvim": {
@@ -45,15 +45,15 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "e44892210cfa98d23bf22b82b345213d742b9bee",
+      "rev": "03c22bb2bc0d6ed60ee6f7351f8a5e65dd2e80d3",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-lspconfig": {
-      "rev": "8a9378a822719346a0288fa004dab302ca3c0a8f",
+      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-regexplainer": {
-      "rev": "2928504785750357f2d4f05d58c243b8fe5bcd06",
+      "rev": "5524915648a545e331b2fa7a3c80d32f0c14e8bd",
       "src": "https://github.com/bennypowers/nvim-regexplainer"
     },
     "nvim-treesitter": {
