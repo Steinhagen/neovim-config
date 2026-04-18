@@ -1,24 +1,34 @@
-return {
-  "saxon1964/neovim-tips",
-  lazy = true, -- Load only when keybinds are triggered
-  dependencies = {
-    "MunifTanjim/nui.nvim",
-    "MeanderingProgrammer/render-markdown.nvim", -- Clean rendering
-    -- "OXY2DEV/markview.nvim", -- Rich rendering with advanced features
-  },
-  opts = {
-    user_file = vim.fn.stdpath 'config' .. '/lua/plugins/data/neovim-tips/user-tips.txt',
-    -- Daily tip DOES NOT WORK with lazy = true
-    daily_tip = 0, -- 0 = off, 1 = once per day, 2 = every startup
-    quiet = true,
-    bookmark_symbol = "🌟 ",
-  },
-  keys = {
-    { "<leader>nto", ":NeovimTips<CR>", desc = "Neovim tips" },
-    { "<leader>ntb", ":NeovimTipsBookmarks<CR>", desc = "Bookmarked tips" },
-    { "<leader>ntr", ":NeovimTipsRandom<CR>", desc = "Show random tip" },
-    { "<leader>nte", ":NeovimTipsEdit<CR>", desc = "Edit your tips" },
-    { "<leader>nta", ":NeovimTipsAdd<CR>", desc = "Add your tip" },
-    { "<leader>ntp", ":NeovimTipsPdf<CR>", desc = "Open tips PDF" },
-  },
+-- nui.nvim is already installed via nvim-regexplainer
+vim.pack.add({
+  'https://github.com/saxon1964/neovim-tips',
+}, { confirm = false })
+
+-- Defer setup until one of the keybinds is pressed
+local initialized = false
+local function ensure_setup()
+  if not initialized then
+    require('neovim-tips').setup {
+      user_file = vim.fn.stdpath 'config' .. '/lua/plugins/data/neovim-tips/user-tips.txt',
+      daily_tip = 0,
+      quiet = true,
+      bookmark_symbol = '🌟 ',
+    }
+    initialized = true
+  end
+end
+
+local keys = {
+  { '<leader>nto', ':NeovimTips<CR>', 'Neovim tips' },
+  { '<leader>ntb', ':NeovimTipsBookmarks<CR>', 'Bookmarked tips' },
+  { '<leader>ntr', ':NeovimTipsRandom<CR>', 'Show random tip' },
+  { '<leader>nte', ':NeovimTipsEdit<CR>', 'Edit your tips' },
+  { '<leader>nta', ':NeovimTipsAdd<CR>', 'Add your tip' },
+  { '<leader>ntp', ':NeovimTipsPdf<CR>', 'Open tips PDF' },
 }
+
+for _, key in ipairs(keys) do
+  vim.keymap.set('n', key[1], function()
+    ensure_setup()
+    vim.cmd(key[2]:sub(2)) -- strip leading ':'
+  end, { desc = key[3] })
+end
