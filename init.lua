@@ -8,15 +8,14 @@ require 'core.options'
 require 'core.menu'
 require 'core.keymaps'
 
--- Load plugins using the default 'pack' package manager
 require 'plugins.colortheme'
 require 'plugins.lsp'
-require 'plugins.none-ls' -- depends on lsp
+require 'plugins.none-ls'
 require 'plugins.nvim-dap-view'
 require 'plugins.toggleterm'
 require 'plugins.treesitter'
-require 'plugins.nvim-regexplainer' -- depends on treesitter
-require 'plugins.render-markdown' -- depends on treesitter
+require 'plugins.nvim-regexplainer'
+require 'plugins.render-markdown'
 require 'plugins.vim-tmux-navigator'
 require 'plugins.gitsigns'
 require 'plugins.indent-blankline'
