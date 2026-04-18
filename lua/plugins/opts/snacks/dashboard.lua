@@ -28,5 +28,12 @@ return {
   sections = {
     { section = 'header' },
     { section = 'keys', gap = 1, padding = 1 },
+    {
+      align = 'center',
+      text = {
+        { '⚡ Neovim loaded in ', hl = 'footer' },
+        { string.format('%.2fms', vim.g.startup_ms or 0), hl = 'special' },
+      },
+    },
   },
 }

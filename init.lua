@@ -1,3 +1,6 @@
+-- Capture startup time before anything else
+local _start = vim.fn.reltime()
+
 require 'core.options'
 require 'core.menu'
 require 'core.keymaps'
@@ -28,4 +31,5 @@ require 'plugins.codecompanion'
 require 'plugins.autocompletion'
 
 -- Load snacks last so that the dashboard knows all loading times
+vim.g.startup_ms = vim.fn.reltimefloat(vim.fn.reltime(_start)) * 1000
 require 'plugins.snacks'
