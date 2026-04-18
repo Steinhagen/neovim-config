@@ -17,17 +17,21 @@ if not utils.is_nixos() then
   require('mason-lspconfig').setup()
 end
 
--- Configure Fidget (UI status)
-require('fidget').setup {
-  notification = {
-    window = { winblend = 0 },
-  },
-}
-
 -- LSP Attach Autocommands (Mappings & Highlights)
+local fidget_initialized = false
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
   callback = function(event)
+    -- Defer fidget setup until first LSP attach
+    if not fidget_initialized then
+      require('fidget').setup {
+        notification = {
+          window = { winblend = 0 },
+        },
+      }
+      fidget_initialized = true
+    end
+
     local map = function(keys, func, desc, mode)
       mode = mode or 'n'
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -99,7 +103,7 @@ local servers = {
         runtime = { version = 'LuaJIT' },
         workspace = {
           checkThirdParty = false,
-          library = vim.api.nvim_get_runtime_file('', true),
+          library = { vim.env.VIMRUNTIME },
         },
         diagnostics = {
           globals = { 'vim', 'Snacks' },
