@@ -21,9 +21,12 @@ return {
       { icon = '󰺮 ', key = 't', desc = 'Find text', action = ':lua Snacks.picker.grep({ live = true })' },
       { icon = '󰁯 ', key = 'sr', desc = 'Restore session', action = ':AutoSession restore' },
       { icon = ' ', key = 'sl', desc = 'List sessions', action = ':AutoSession search' },
-      { icon = '󱑢 ', key = 'ul', desc = 'Update lazy plugins', action = ':Lazy update' },
-      { icon = '󱑤 ', key = 'up', desc = 'Update pack plugins', action = ':lua vim.pack.update()' },
+      { icon = '󱑢 ', key = 'u', desc = 'Update plugins', action = ':lua vim.pack.update(); vim.cmd("write")' },
       { icon = '󰈆 ', key = 'q', desc = 'Quit', action = ':qa' },
     },
+  },
+  sections = {
+    { section = 'header' },
+    { section = 'keys', gap = 1, padding = 1 },
   },
 }

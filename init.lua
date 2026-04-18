@@ -3,6 +3,7 @@ require 'core.menu'
 require 'core.keymaps'
 
 -- Load plugins using the default 'pack' package manager
+require 'plugins.colortheme'
 require 'plugins.lsp'
 require 'plugins.none-ls' -- depends on lsp
 require 'plugins.nvim-dap-view'
@@ -23,37 +24,8 @@ require 'plugins.undo-glow'
 require 'plugins.tiny-inline-diagnostic'
 require 'plugins.sessions'
 require 'plugins.misc'
+require 'plugins.codecompanion'
+require 'plugins.autocompletion'
 
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not vim.uv.fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
-  end
-end
-
-local rtp = vim.opt.rtp
-rtp:prepend(lazypath)
-
--- Load plugins using the 'lazy' package manager
-require('lazy').setup({
-  require 'plugins.colortheme',
-  require 'plugins.codecompanion',
-  require 'plugins.autocompletion',
-}, {
-  -- By default, lazy.nvim takes full control of Neovim's runtime path (RTP) and
-  -- deletes the default directories where Neovim 0.12's vim.pack installs things.
-  -- Setting reset = false tells Lazy to leave those default paths alone so
-  -- vim.pack can safely load the plugins right after Lazy finishes.
-
-  performance = {
-    rtp = {
-      reset = false,
-    },
-    reset_packpath = false,
-  },
-})
-
--- Load snacks last so that the dashboard know all loading times
+-- Load snacks last so that the dashboard knows all loading times
 require 'plugins.snacks'
