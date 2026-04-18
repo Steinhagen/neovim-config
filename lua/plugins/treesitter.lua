@@ -43,11 +43,15 @@ local filetypes = {
 local installed = false
 vim.api.nvim_create_autocmd('FileType', {
   pattern = filetypes,
-  callback = function()
+  callback = function(ev)
     if not installed then
-      require('nvim-treesitter').install(filetypes)
       installed = true
+      require('nvim-treesitter').install(filetypes, function()
+        -- Start highlighting on the buffer that triggered the install
+        pcall(vim.treesitter.start, ev.buf)
+      end)
+    else
+      pcall(vim.treesitter.start, ev.buf)
     end
-    vim.treesitter.start()
   end,
 })
