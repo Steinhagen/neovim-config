@@ -1,20 +1,24 @@
-return {
-  'kevinhwang91/nvim-ufo',
-  dependencies = 'kevinhwang91/promise-async',
-  -- version = 'v1.4.0',
-  lazy = false,
-  config = function()
-    vim.o.foldcolumn = '1'
-    vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = true
-    vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.pack.add({
+  'https://github.com/kevinhwang91/promise-async',
+  'https://github.com/kevinhwang91/nvim-ufo',
+}, { confirm = false })
 
-    vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-    vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
-    vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-    vim.keymap.set('n', 'zk', require('ufo').peekFoldedLinesUnderCursor)
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+vim.api.nvim_create_autocmd('BufReadPost', {
+  once = true,
+  callback = function()
+    local ufo = require('ufo')
+
+    vim.keymap.set('n', 'zR', ufo.openAllFolds)
+    vim.keymap.set('n', 'zM', ufo.closeAllFolds)
+    vim.keymap.set('n', 'zr', ufo.openFoldsExceptKinds)
+    vim.keymap.set('n', 'zm', ufo.closeFoldsWith)
+    vim.keymap.set('n', 'zk', ufo.peekFoldedLinesUnderCursor)
 
     local handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
@@ -32,7 +36,6 @@ return {
           local hlGroup = chunk[2]
           table.insert(newVirtText, { chunkText, hlGroup })
           chunkWidth = vim.fn.strdisplaywidth(chunkText)
-          -- str width returned from truncate() may less than 2nd argument, need padding
           if curWidth + chunkWidth < targetWidth then
             suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
           end
@@ -44,8 +47,8 @@ return {
       return newVirtText
     end
 
-    require('ufo').setup {
+    ufo.setup {
       fold_virt_text_handler = handler,
     }
   end,
-}
+})
