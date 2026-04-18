@@ -1,57 +1,54 @@
+vim.pack.add({
+  'https://github.com/rmagatti/auto-session',
+}, { confirm = false })
+
 local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>S'
 
-return {
-  -- Session management
-  {
-    'rmagatti/auto-session',
-    event = {
-      'BufReadPre',
-      'BufWritePre',
-    },
-    keys = {
-      { mapping_key_prefix .. 's', '<cmd>AutoSession search<cr>', mode = { 'n', 'x' }, desc = 'Pick' },
-      { mapping_key_prefix .. 'r', '<cmd>AutoSession restore<cr>', mode = { 'n', 'x' }, desc = 'Restore' },
-      { mapping_key_prefix .. 'w', '<cmd>AutoSession save<cr>', mode = { 'n', 'x' }, desc = 'Save' },
-      { mapping_key_prefix .. 'd', '<cmd>AutoSession delete<cr>', mode = { 'n', 'x' }, desc = 'Delete' },
-      { mapping_key_prefix .. 't', '<cmd>AutoSession toggle<cr>', mode = { 'n', 'x' }, desc = 'Toggle Autosave' },
-    },
-    cmd = { 'AutoSession' },
-    opts = {
-      enabled = true, -- Enables/disables auto creating, saving and restoring
-      root_dir = vim.fn.stdpath 'data' .. '/sessions/', -- Root dir where sessions will be stored
-      auto_save = true, -- Enables/disables auto saving session on exit
-      auto_restore = false, -- Enables/disables auto restoring session on start
-      auto_create = true, -- Enables/disables auto creating new session files. Can take a function that should return true/false if a new session file should be created or not
-      suppressed_dirs = nil, -- Suppress session restore/create in certain directories
-      allowed_dirs = nil, -- Allow session restore/create in certain directories
-      auto_restore_last_session = false, -- On startup, loads the last saved session if session for cwd does not exist
-      use_git_branch = true, -- Include git branch name in session name
-      lazy_support = true, -- Automatically detect if Lazy.nvim is being used and wait until Lazy is done to make sure session is restored correctly. Does nothing if Lazy isn't being used. Can be disabled if a problem is suspected or for debugging
-      bypass_save_filetypes = { 'alpha' }, -- List of filetypes to bypass auto save when the only buffer open is one of the file types listed, useful to ignore dashboards
-      close_unsupported_windows = true, -- Close windows that aren't backed by normal file before autosaving a session
-      args_allow_single_directory = true, -- Follow normal sesion save/load logic if launched with a single directory as the only argument
-      args_allow_files_auto_save = false, -- Allow saving a session even when launched with a file argument (or multiple files/dirs). It does not load any existing session first. While you can just set this to true, you probably want to set it to a function that decides when to save a session when launched with file args. See documentation for more detail
-      continue_restore_on_error = true, -- Keep loading the session even if there's an error
-      show_auto_restore_notif = false, -- Whether to show a notification when auto-restoring
-      cwd_change_handling = false, -- Follow cwd changes, saving a session before change and restoring after
-      lsp_stop_on_restore = false, -- Should language servers be stopped when restoring a session. Can also be a function that will be called if set. Not called on autorestore from startup
-      log_level = 'error', -- Sets the log level of the plugin (debug, info, warn, error).
+-- Defer setup until first buffer read/write
+vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufWritePre' }, {
+  once = true,
+  callback = function()
+    require('auto-session').setup {
+      enabled = true,
+      root_dir = vim.fn.stdpath 'data' .. '/sessions/',
+      auto_save = true,
+      auto_restore = false,
+      auto_create = true,
+      suppressed_dirs = nil,
+      allowed_dirs = nil,
+      auto_restore_last_session = false,
+      use_git_branch = true,
+      lazy_support = true,
+      bypass_save_filetypes = { 'alpha' },
+      close_unsupported_windows = true,
+      args_allow_single_directory = true,
+      args_allow_files_auto_save = false,
+      continue_restore_on_error = true,
+      show_auto_restore_notif = false,
+      cwd_change_handling = false,
+      lsp_stop_on_restore = false,
+      log_level = 'error',
 
       session_lens = {
-        picker = "snacks",
-
+        picker = 'snacks',
         mappings = {
-          -- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
           delete_session = { 'i', '<C-D>' },
           alternate_session = { 'i', '<C-S>' },
           copy_session = { 'i', '<C-Y>' },
         },
-
         session_control = {
-          control_dir = vim.fn.stdpath 'data' .. '/auto_session/', -- Auto session control dir, for control files, like alternating between two sessions with session-lens
-          control_filename = 'session_control.json', -- File name of the session control file
+          control_dir = vim.fn.stdpath 'data' .. '/auto_session/',
+          control_filename = 'session_control.json',
         },
       },
-    },
-  },
-}
+    }
+  end,
+})
+
+-- Keymaps (available immediately, commands will work once auto-session loads)
+local opts = { noremap = true, silent = true }
+vim.keymap.set({ 'n', 'x' }, mapping_key_prefix .. 's', '<cmd>AutoSession search<cr>', vim.tbl_extend('force', opts, { desc = 'Pick' }))
+vim.keymap.set({ 'n', 'x' }, mapping_key_prefix .. 'r', '<cmd>AutoSession restore<cr>', vim.tbl_extend('force', opts, { desc = 'Restore' }))
+vim.keymap.set({ 'n', 'x' }, mapping_key_prefix .. 'w', '<cmd>AutoSession save<cr>', vim.tbl_extend('force', opts, { desc = 'Save' }))
+vim.keymap.set({ 'n', 'x' }, mapping_key_prefix .. 'd', '<cmd>AutoSession delete<cr>', vim.tbl_extend('force', opts, { desc = 'Delete' }))
+vim.keymap.set({ 'n', 'x' }, mapping_key_prefix .. 't', '<cmd>AutoSession toggle<cr>', vim.tbl_extend('force', opts, { desc = 'Toggle Autosave' }))

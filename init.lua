@@ -21,6 +21,8 @@ require 'plugins.typst-preview'
 require 'plugins.lualine'
 require 'plugins.undo-glow'
 require 'plugins.tiny-inline-diagnostic'
+require 'plugins.sessions'
+require 'plugins.misc'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
@@ -39,8 +41,6 @@ require('lazy').setup({
   require 'plugins.colortheme',
   require 'plugins.codecompanion',
   require 'plugins.autocompletion',
-  require 'plugins.sessions',
-  require 'plugins.misc',
 }, {
   -- By default, lazy.nvim takes full control of Neovim's runtime path (RTP) and
   -- deletes the default directories where Neovim 0.12's vim.pack installs things.
