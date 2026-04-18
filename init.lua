@@ -11,6 +11,9 @@ require 'plugins.treesitter'
 require 'plugins.nvim-regexplainer' -- depends on treesitter
 require 'plugins.render-markdown' -- depends on treesitter
 require 'plugins.vim-tmux-navigator'
+require 'plugins.gitsigns'
+require 'plugins.indent-blankline'
+require 'plugins.conform'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
@@ -29,10 +32,7 @@ require('lazy').setup({
   require 'plugins.colortheme',
   require 'plugins.lualine',
   require 'plugins.codecompanion',
-  require 'plugins.gitsigns',
   require 'plugins.autocompletion',
-  require 'plugins.indent-blankline',
-  require 'plugins.conform',
   require 'plugins.visual-whitespace',
   require 'plugins.tiny-inline-diagnostic',
   require 'plugins.sessions',
