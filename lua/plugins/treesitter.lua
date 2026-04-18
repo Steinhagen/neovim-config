@@ -39,11 +39,15 @@ local filetypes = {
   'yaml',
 }
 
-require('nvim-treesitter').install(filetypes)
-
+-- Defer parser installation and treesitter start until a matching filetype is opened
+local installed = false
 vim.api.nvim_create_autocmd('FileType', {
   pattern = filetypes,
   callback = function()
+    if not installed then
+      require('nvim-treesitter').install(filetypes)
+      installed = true
+    end
     vim.treesitter.start()
   end,
 })
