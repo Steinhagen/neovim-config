@@ -1,6 +1,9 @@
 -- Capture startup time before anything else
 local _start = vim.fn.reltime()
 
+-- Enable Lua bytecode caching for faster require() calls
+vim.loader.enable()
+
 require 'core.options'
 require 'core.menu'
 require 'core.keymaps'

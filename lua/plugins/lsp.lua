@@ -11,10 +11,36 @@ vim.pack.add({
   'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
 }, { confirm = false })
 
--- Configure Mason (if not on NixOS)
-if not utils.is_nixos() then
+-- Forward declaration (populated below)
+local servers
+
+-- Configure Mason (if not on NixOS) — deferred to first BufReadPre
+local mason_initialized = false
+local function setup_mason()
+  if mason_initialized or utils.is_nixos() then
+    return
+  end
+  mason_initialized = true
+
   require('mason').setup()
   require('mason-lspconfig').setup()
+
+  local ensure_installed = {}
+  for server, _ in pairs(servers) do
+    if server == 'puppet_editor_services' then
+      table.insert(ensure_installed, 'puppet-editor-services')
+    elseif server == 'ts_ls' then
+      table.insert(ensure_installed, 'typescript-language-server')
+    else
+      table.insert(ensure_installed, server)
+    end
+  end
+  vim.list_extend(ensure_installed, { 'stylua' })
+  require('mason-tool-installer').setup {
+    ensure_installed = ensure_installed,
+    auto_update = false,
+    run_on_start = true,
+  }
 end
 
 -- LSP Attach Autocommands (Mappings & Highlights)
@@ -85,7 +111,7 @@ end
 
 -- Server Configurations
 local gcc_path = vim.fn.exepath 'gcc'
-local servers = {
+servers = {
   ansiblels = {},
   bashls = {},
   clangd = {
@@ -138,33 +164,18 @@ local servers = {
   yamlls = {},
 }
 
--- Install Tools & Enable Servers
-
-if not utils.is_nixos() then
-  -- Create a clean list of package names for Mason
-  local ensure_installed = {}
-  -- Add all servers, but fix the ones where LSP name != Mason name
-  for server, _ in pairs(servers) do
-    if server == 'puppet_editor_services' then
-      table.insert(ensure_installed, 'puppet-editor-services') -- Use dash for Mason
-    elseif server == 'ts_ls' then
-      table.insert(ensure_installed, 'typescript-language-server') -- Use full name for Mason
-    else
-      table.insert(ensure_installed, server)
-    end
-  end
-  vim.list_extend(ensure_installed, { 'stylua' })
-  require('mason-tool-installer').setup {
-    ensure_installed = ensure_installed,
-    auto_update = false,
-    run_on_start = true,
-  }
-end
-
 for server, cfg in pairs(servers) do
   cfg.capabilities = vim.tbl_deep_extend('force', {}, capabilities, cfg.capabilities or {})
   vim.lsp.config(server, cfg)
   vim.lsp.enable(server)
+end
+
+-- Trigger mason setup on first buffer read
+if not utils.is_nixos() then
+  vim.api.nvim_create_autocmd('BufReadPre', {
+    once = true,
+    callback = setup_mason,
+  })
 end
 
 -- Global LSP Keymaps

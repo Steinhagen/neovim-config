@@ -1,13 +1,10 @@
 -- Standalone plugins with less than 10 lines of config go here
-
--- Detect tabstop and shiftwidth automatically
 vim.pack.add({
-  'https://github.com/tpope/vim-sleuth',
-}, { confirm = false })
-
--- Hints keybinds
-vim.pack.add({
-  'https://github.com/folke/which-key.nvim',
+  'https://github.com/tpope/vim-sleuth',        -- Detect tabstop and shiftwidth automatically
+  'https://github.com/folke/which-key.nvim',     -- Hints keybinds
+  'https://github.com/windwp/nvim-autopairs',    -- Autoclose parentheses, brackets, quotes, etc.
+  'https://github.com/folke/todo-comments.nvim', -- Highlight todo, notes, etc in comments
+  'https://github.com/catgoose/nvim-colorizer.lua', -- High-performance color highlighter
 }, { confirm = false })
 
 vim.api.nvim_create_autocmd('UIEnter', {
@@ -17,11 +14,6 @@ vim.api.nvim_create_autocmd('UIEnter', {
   end,
 })
 
--- Autoclose parentheses, brackets, quotes, etc.
-vim.pack.add({
-  'https://github.com/windwp/nvim-autopairs',
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd('InsertEnter', {
   once = true,
   callback = function()
@@ -29,21 +21,10 @@ vim.api.nvim_create_autocmd('InsertEnter', {
   end,
 })
 
--- Highlight todo, notes, etc in comments (depends on plenary)
-vim.pack.add({
-  'https://github.com/folke/todo-comments.nvim',
-}, { confirm = false })
-
-vim.api.nvim_create_autocmd('VimEnter', {
+vim.api.nvim_create_autocmd('BufReadPost', {
   once = true,
   callback = function()
     require('todo-comments').setup { signs = false }
+    require('colorizer').setup()
   end,
 })
-
--- High-performance color highlighter
-vim.pack.add({
-  'https://github.com/catgoose/nvim-colorizer.lua',
-}, { confirm = false })
-
-require('colorizer').setup()
