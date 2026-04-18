@@ -45,3 +45,24 @@ vim.o.expandtab = true -- Convert tabs to spaces (default: false)
 vim.o.winborder = 'rounded' -- Add border to all floating windows
 require('vim._core.ui2').enable {} -- Enable the experimental “_core.ui2” (extended UI) that reroutes and renders core UI elements
 require('utils.clipboard').init() -- Sync clipboard between OS and Neovim (default: '')
+
+-- When opening a directory as an argument (e.g. `nvim /some/path`), set tcd to that directory
+-- so that pickers and searches use it as the root instead of the shell's cwd.
+local augroup = vim.api.nvim_create_augroup('StartupTabCwd', { clear = true })
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = augroup,
+  desc = 'Set tab local directory when opening a folder',
+  callback = function()
+    -- Safely exit if no arguments were passed
+    if vim.fn.argc() == 0 then
+      return
+    end
+
+    local arg = vim.fn.argv(0)
+    -- Prove to LuaLS that 'arg' is strictly a string and verify it is a directory
+    if type(arg) == 'string' and vim.fn.isdirectory(arg) == 1 then
+      local abs_path = vim.fn.fnamemodify(arg, ':p')
+      vim.cmd.tcd(vim.fn.fnameescape(abs_path))
+    end
+  end,
+})
