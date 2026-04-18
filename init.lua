@@ -14,6 +14,10 @@ require 'plugins.vim-tmux-navigator'
 require 'plugins.gitsigns'
 require 'plugins.indent-blankline'
 require 'plugins.conform'
+require 'plugins.visual-whitespace'
+require 'plugins.nvim-ufo'
+require 'plugins.neovim-tips'
+require 'plugins.typst-preview'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
@@ -33,13 +37,9 @@ require('lazy').setup({
   require 'plugins.lualine',
   require 'plugins.codecompanion',
   require 'plugins.autocompletion',
-  require 'plugins.visual-whitespace',
   require 'plugins.tiny-inline-diagnostic',
   require 'plugins.sessions',
-  require 'plugins.neovim-tips',
-  require 'plugins.nvim-ufo',
   require 'plugins.undo-glow',
-  require 'plugins.typst-preview',
   require 'plugins.misc',
 }, {
   -- By default, lazy.nvim takes full control of Neovim's runtime path (RTP) and
