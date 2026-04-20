@@ -142,7 +142,7 @@ export NVIM_THEME_NAME='tokyonight'
 
 ### General Configuration
 
-- [init.lua](./init.lua): Contains lazy installer and sources all other plugins.
+- [init.lua](./init.lua): Entry file that includes all other used plugins.
 - [keymaps.lua](./lua/core/keymaps.lua): Contains general Neovim keymaps. Plugins keymaps are in their own lua file.
 - [options.lua](./lua/core/options.lua): Contains general settings for Neovim.
 - [menu.lua](./lua/core/menu.lua): Contains the right-click menu settings.
