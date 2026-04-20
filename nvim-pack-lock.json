@@ -25,7 +25,7 @@
       "src": "https://github.com/saadparwaiz1/cmp_luasnip"
     },
     "codecompanion.nvim": {
-      "rev": "0d618f9de6a807b2abe2f69cb4e02fd1623e6224",
+      "rev": "e003fac48f8af4fc2d4ece3ee2f6f1897f71b912",
       "src": "https://github.com/olimorris/codecompanion.nvim"
     },
     "conform.nvim": {
@@ -41,7 +41,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "8d82c240f190fc33723d48c308ccc1ed8baad69d",
+      "rev": "6d808f99bd63303646794406e270bd553ad7792e",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "indent-blankline.nvim": {
@@ -85,7 +85,7 @@
       "src": "https://github.com/nvimtools/none-ls-extras.nvim"
     },
     "none-ls.nvim": {
-      "rev": "899e93f9f10251d7220b188eba1b837c0ba27927",
+      "rev": "e135361b9c11755ef6c48f54a2c970c509b56239",
       "src": "https://github.com/nvimtools/none-ls.nvim"
     },
     "nui.nvim": {
