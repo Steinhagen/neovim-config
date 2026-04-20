@@ -1,6 +1,8 @@
 return {
   sources = {
     explorer = {
+      hidden = true,
+      ignored = true,
       actions = {
         set_tab_cwd = function(picker, item)
           if not item then
@@ -48,6 +50,8 @@ return {
       },
     },
     files = {
+      hidden = true,
+      ignored = true,
       win = {
         list = {
           wo = {
@@ -58,6 +62,8 @@ return {
       },
     },
     grep = {
+      hidden = true,
+      ignored = true,
       win = {
         list = {
           wo = {
