@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('UIEnter', {
     local mode = {
       'mode',
       fmt = function(str)
-        return ' ' .. str
+        return ' ' .. str
       end,
     }
 
@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('UIEnter', {
       'diagnostics',
       sources = { 'nvim_diagnostic' },
       sections = { 'error', 'warn' },
-      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+      symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
       colored = false,
       update_in_insert = false,
       always_visible = false,
@@ -36,15 +36,15 @@ vim.api.nvim_create_autocmd('UIEnter', {
     local diff = {
       'diff',
       colored = true,
-      symbols = { added = ' ', modified = ' ', removed = ' ' },
+      symbols = { added = ' ', modified = ' ', removed = ' ' },
       cond = hide_in_width,
     }
 
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        section_separators = { left = '', right = '' },
-        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
         disabled_filetypes = { 'alpha', 'neo-tree' },
         always_divide_middle = true,
       },
