@@ -156,6 +156,16 @@ servers = {
     },
   },
   puppet_editor_services = {},
+  qmlls = (function()
+    local qmlls_path = 'qmlls'
+    if vim.fn.executable 'qmake6' == 1 then
+      qmlls_path = vim.fn.system('qmake6 -query QT_INSTALL_BINS'):gsub('%s+$', '') .. '/qmlls'
+    end
+    return {
+      cmd = { qmlls_path },
+      root_markers = { '.qmlls.ini', 'CMakeLists.txt' },
+    }
+  end)(),
   ruff = {},
   tailwindcss = {},
   terraformls = {},
