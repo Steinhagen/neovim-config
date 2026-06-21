@@ -23,8 +23,8 @@ local function ensure_setup()
 
   require('codecompanion').setup {
     strategies = {
-      chat = { adapter = 'kiro' },
-      inline = { adapter = 'kiro' },
+      chat = { adapter = 'deepseek' },  -- 'gemini' / 'kiro'
+      inline = { adapter = 'deepseek' },  -- 'gemini' / 'kiro'
     },
 
     adapters = {
@@ -49,6 +49,16 @@ local function ensure_setup()
           })
         end,
 
+        deepseek = function()
+          return require("codecompanion.adapters").extend("deepseek", {
+            schema = {
+              model = {
+                default = "deepseek-v4-pro",
+              },
+            },
+          })
+        end,
+
         gemini = function()
           return require('codecompanion.adapters').extend('gemini', {
             env = {
@@ -56,7 +66,7 @@ local function ensure_setup()
             },
             schema = {
               model = {
-                default = 'gemini-3-flash-preview',
+                default = 'gemini-3.5-flash',
               },
             },
           })
