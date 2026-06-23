@@ -25,7 +25,7 @@
       "src": "https://github.com/saadparwaiz1/cmp_luasnip"
     },
     "codecompanion.nvim": {
-      "rev": "e1352a2f71813e8bd11de317defe8a70362e8bc9",
+      "rev": "635f001598d811c6ea256bc863b3d503c3a88d43",
       "src": "https://github.com/olimorris/codecompanion.nvim"
     },
     "conform.nvim": {

@@ -23,11 +23,22 @@ local function ensure_setup()
 
   require('codecompanion').setup {
     strategies = {
-      chat = { adapter = 'deepseek' },  -- 'gemini' / 'kiro'
-      inline = { adapter = 'deepseek' },  -- 'gemini' / 'kiro'
+      chat = { adapter = 'opencode' },  -- 'gemini' / 'kiro'
+      -- inline = { adapter = 'deepseek' },
     },
 
     adapters = {
+      acp = {
+        opencode = function()
+          return require("codecompanion.adapters").extend("opencode", {
+            defaults = {
+              session_config_options = {
+                model = "deepseek/deepseek-v4-pro",
+              },
+            },
+          })
+        end,
+      },
       http = {
         ollama_inline = function()
           return require('codecompanion.adapters').extend('ollama', {
