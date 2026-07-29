@@ -16,6 +16,19 @@ local function ensure_setup()
   end
   initialized = true
 
+  -- CodeCompanion reads the YAML frontmatter of its prompt library with
+  -- treesitter, so the `yaml` parser must exist before setup() runs.
+  -- treesitter.lua installs parsers lazily from a FileType autocmd, which may
+  -- not have fired yet (or ever, on a fresh machine). `force` because
+  -- install() otherwise trusts the parser-info revision marker and skips even
+  -- when the compiled parser is gone.
+  if #vim.api.nvim_get_runtime_file('parser/yaml.so', false) == 0 then
+    vim.notify('Installing the yaml treesitter parser for CodeCompanion…', vim.log.levels.INFO)
+    pcall(function()
+      require('nvim-treesitter').install({ 'yaml' }, { force = true }):wait(120000)
+    end)
+  end
+
   local diff = require 'mini.diff'
   diff.setup {
     source = diff.gen_source.none(),
@@ -23,8 +36,8 @@ local function ensure_setup()
 
   require('codecompanion').setup {
     strategies = {
-      chat = { adapter = 'opencode' },  -- 'gemini' / 'kiro'
-      -- inline = { adapter = 'deepseek' },
+      chat = { adapter = 'llama_cpp' },  -- 'gemini' / 'kiro' / 'opencode'
+      inline = { adapter = 'llama_cpp' },  -- 'deepseek'
     },
 
     adapters = {
@@ -40,6 +53,44 @@ local function ensure_setup()
         end,
       },
       http = {
+        -- Local llama-server (services.llama-cpp on middle-ring, loopback only).
+        -- CodeCompanion has no llama.cpp adapter, so this extends the generic
+        -- OpenAI-compatible one at llama-server's /v1 endpoint.
+        llama_cpp = function()
+          return require('codecompanion.adapters').extend('openai_compatible', {
+            env = {
+              url = 'http://127.0.0.1:8012',
+              chat_url = '/v1/chat/completions',
+              models_endpoint = '/v1/models',
+              -- llama-server is started without --api-key, but the adapter
+              -- always sends an Authorization header, so it needs a value.
+              -- Not an env var name, so it is used literally.
+              api_key = 'sk-local',
+            },
+            handlers = {
+              -- llama-server runs with --jinja, so the model's own chat
+              -- template applies. Qwen3.5's raises
+              --   "System message must be at the beginning"
+              -- for anything other than exactly one system message in first
+              -- position, and a chat buffer routinely has several (default
+              -- system prompt + tool prompts). Consolidate them the way the
+              -- bundled deepseek adapter does; openai_compatible does not.
+              form_messages = function(self, messages)
+                local utils = require 'codecompanion.adapters.utils'
+                local openai = require 'codecompanion.adapters.http.openai'
+                return openai.handlers.form_messages(self, utils.merge_system_messages(messages))
+              end,
+            },
+            schema = {
+              model = {
+                -- Matches --alias in shared/llama-cpp.nix; /v1/models reports
+                -- exactly this id.
+                default = 'qwen3.5-9b-llamacpp',
+              },
+            },
+          })
+        end,
+
         ollama_inline = function()
           return require('codecompanion.adapters').extend('ollama', {
             schema = {

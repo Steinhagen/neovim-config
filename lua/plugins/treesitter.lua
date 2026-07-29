@@ -30,7 +30,6 @@ local filetypes = {
   'rust',
   'sql',
   'terraform',
-  'tmux',
   'toml',
   'tsx',
   'typescript',
