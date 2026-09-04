@@ -129,7 +129,10 @@ servers = {
         runtime = { version = 'LuaJIT' },
         workspace = {
           checkThirdParty = false,
-          library = { vim.env.VIMRUNTIME },
+          library = {
+            vim.env.VIMRUNTIME,
+            vim.fn.stdpath('data') .. '/site/pack/core/opt',
+          },
         },
         diagnostics = {
           globals = { 'vim', 'Snacks' },
