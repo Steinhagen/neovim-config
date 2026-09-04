@@ -1,5 +1,29 @@
 local utils = require 'utils.system'
 
+-- Neovim 0.13 deprecated vim.lsp.util.stylize_markdown (no replacement), but
+-- nvim-cmp and nvim-regexplainer still call it. Keep the original behavior and
+-- silence only that deprecation notice until the plugins drop the call. Once
+-- it is removed in 0.14, fall back to a no-op so callers don't error.
+do
+  local util = require 'vim.lsp.util'
+  local stylize = util.stylize_markdown
+  local orig_deprecate = vim.deprecate
+  ---@diagnostic disable-next-line: duplicate-set-field
+  util.stylize_markdown = function(...)
+    if not stylize then
+      return
+    end
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.deprecate = function() end
+    local ok, err = pcall(stylize, ...)
+    ---@diagnostic disable-next-line: duplicate-set-field
+    vim.deprecate = orig_deprecate
+    if not ok then
+      error(err)
+    end
+  end
+end
+
 -- Install all LSP-related plugins
 vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
