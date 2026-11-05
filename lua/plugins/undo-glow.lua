@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/y3owk1n/undo-glow.nvim',
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd('UIEnter', {
   once = true,
   callback = function()

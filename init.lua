@@ -6,6 +6,9 @@ vim.loader.enable()
 
 require 'core.options'
 require 'core.menu'
+-- Install every plugin in a single vim.pack.add() call (see lua/core/pack.lua)
+require 'core.pack'
+
 require 'core.keymaps'
 
 require 'plugins.colortheme'
@@ -31,6 +34,7 @@ require 'plugins.sessions'
 require 'plugins.misc'
 require 'plugins.codecompanion'
 require 'plugins.autocompletion'
+require 'plugins.bitwise-visualizer'
 
 -- Load snacks last so that the dashboard knows all loading times
 vim.g.startup_ms = vim.fn.reltimefloat(vim.fn.reltime(_start)) * 1000

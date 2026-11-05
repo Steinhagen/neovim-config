@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/rachartier/tiny-inline-diagnostic.nvim',
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd('UIEnter', {
   once = true,
   callback = function()

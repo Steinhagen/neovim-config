@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/akinsho/toggleterm.nvim',
-}, { confirm = false })
-
 -- Defer setup until the toggle keybind is first pressed
 local toggled = false
 vim.keymap.set({ 'n', 't' }, [[<C-\>]], function()

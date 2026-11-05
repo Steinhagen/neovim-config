@@ -1,46 +1,6 @@
--- Define all your themes in here
-local themes = {
-  catppuccin = {
-    src = 'https://github.com/catppuccin/nvim',
-    -- The name used for the :colorscheme command
-    colorscheme = 'catppuccin',
-    -- Function that returns the setup options table
-    opts = function(transparent)
-      return {
-        flavour = 'auto',
-        background = { light = 'latte', dark = 'mocha' },
-        transparent_background = transparent,
-        styles = {
-          comments = { 'italic' },
-          conditionals = { 'italic' },
-        },
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          treesitter = true,
-        },
-      }
-    end,
-  },
-  tokyonight = {
-    src = 'https://github.com/folke/tokyonight.nvim',
-    colorscheme = 'tokyonight',
-    opts = function(transparent)
-      return {
-        style = 'night',
-        light_style = 'day',
-        transparent = transparent,
-        terminal_colors = true,
-        styles = {
-          keywords = { italic = true },
-          sidebars = transparent and 'transparent' or 'dark',
-          floats = transparent and 'transparent' or 'dark',
-        },
-      }
-    end,
-  },
-}
+-- Theme definitions live in lua/core/themes.lua (shared with core/pack.lua,
+-- which installs the active theme plugin).
+local themes = require 'core.themes'
 
 -- This is the name of the active theme
 local current_theme_name = 'catppuccin'
@@ -56,11 +16,6 @@ if not active_theme then
   vim.notify('Theme "' .. current_theme_name .. '" not found in configuration.', vim.log.levels.ERROR)
   return
 end
-
--- Install the active theme plugin
-vim.pack.add({
-  active_theme.src,
-}, { confirm = false })
 
 -- Apply theme immediately (no deferral — colorscheme must load first)
 local utils = require 'utils.theme'

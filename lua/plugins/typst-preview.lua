@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/chomosuke/typst-preview.nvim',
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'typst',
   once = true,

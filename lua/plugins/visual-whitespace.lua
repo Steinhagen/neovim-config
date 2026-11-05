@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/mcauley-penney/visual-whitespace.nvim',
-}, { confirm = false })
-
 -- Only needed in visual mode, defer until first use
 vim.api.nvim_create_autocmd('ModeChanged', {
   pattern = '*:[vV\x16]*',

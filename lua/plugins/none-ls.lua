@@ -1,19 +1,5 @@
 local utils = require 'utils.system'
 
--- Conditionally build your plugin list based on your NixOS check
-local plugins = {
-  'https://github.com/nvim-lua/plenary.nvim',
-  'https://github.com/nvimtools/none-ls.nvim',
-  'https://github.com/nvimtools/none-ls-extras.nvim',
-}
-
-if not utils.is_nixos() then
-  table.insert(plugins, 'https://github.com/jayp0521/mason-null-ls.nvim')
-end
-
--- Install and load the plugins natively
-vim.pack.add(plugins, { confirm = false })
-
 -- Formatting State & Logic
 local format_on_save_enabled = false
 

@@ -24,17 +24,6 @@ do
   end
 end
 
--- Install all LSP-related plugins
-vim.pack.add({
-  'https://github.com/neovim/nvim-lspconfig',
-  'https://github.com/j-hui/fidget.nvim',
-  'https://github.com/hrsh7th/cmp-nvim-lsp',
-  -- Mason plugins (Conditional for non-NixOS)
-  'https://github.com/williamboman/mason.nvim',
-  'https://github.com/williamboman/mason-lspconfig.nvim',
-  'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
-}, { confirm = false })
-
 -- Forward declaration (populated below)
 local servers
 
@@ -183,16 +172,21 @@ servers = {
     },
   },
   puppet_editor_services = {},
-  qmlls = (function()
-    local qmlls_path = 'qmlls'
-    if vim.fn.executable 'qmake6' == 1 then
-      qmlls_path = vim.fn.system('qmake6 -query QT_INSTALL_BINS'):gsub('%s+$', '') .. '/qmlls'
-    end
-    return {
-      cmd = { qmlls_path },
-      root_markers = { '.qmlls.ini', 'CMakeLists.txt' },
-    }
-  end)(),
+  -- `cmd` is resolved lazily when a QML buffer starts the server, so no shell +
+  -- qmake6 subprocess is spawned on every Neovim startup.
+  qmlls = {
+    cmd = function()
+      local qmlls_path = 'qmlls'
+      if vim.fn.executable 'qmake6' == 1 then
+        local qt_bins = vim.fn.system('qmake6 -query QT_INSTALL_BINS'):gsub('%s+$', '')
+        if qt_bins ~= '' then
+          qmlls_path = qt_bins .. '/qmlls'
+        end
+      end
+      return { qmlls_path }
+    end,
+    root_markers = { '.qmlls.ini', 'CMakeLists.txt' },
+  },
   ruff = {},
   tailwindcss = {},
   terraformls = {},

@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/rmagatti/auto-session',
-}, { confirm = false })
-
 local mapping_key_prefix = vim.g.ai_prefix_key or '<leader>S'
 
 -- Setup auto-session eagerly so :AutoSession commands are available from the dashboard

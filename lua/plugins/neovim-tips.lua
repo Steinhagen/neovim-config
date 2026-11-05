@@ -1,8 +1,4 @@
 -- nui.nvim is already installed via nvim-regexplainer
-vim.pack.add({
-  'https://github.com/saxon1964/neovim-tips',
-}, { confirm = false })
-
 -- Defer setup until one of the keybinds is pressed
 local initialized = false
 local function ensure_setup()

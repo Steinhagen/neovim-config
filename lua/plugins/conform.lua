@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/stevearc/conform.nvim',
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd('BufReadPre', {
   once = true,
   callback = function()

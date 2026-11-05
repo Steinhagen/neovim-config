@@ -1,13 +1,3 @@
--- Dependencies
-vim.pack.add({
-  'https://github.com/echasnovski/mini.diff',
-}, { confirm = false })
-
--- CodeCompanion
-vim.pack.add({
-  'https://github.com/olimorris/codecompanion.nvim',
-}, { confirm = false })
-
 -- Defer setup until first use
 local initialized = false
 local function ensure_setup()
@@ -25,7 +15,7 @@ local function ensure_setup()
   if #vim.api.nvim_get_runtime_file('parser/yaml.so', false) == 0 then
     vim.notify('Installing the yaml treesitter parser for CodeCompanion…', vim.log.levels.INFO)
     pcall(function()
-      require('nvim-treesitter').install({ 'yaml' }, { force = true }):wait(120000)
+      require('nvim-treesitter').install({ 'yaml' }, { force = true }):wait(15000)
     end)
   end
 

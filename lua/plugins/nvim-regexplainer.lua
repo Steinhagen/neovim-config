@@ -1,8 +1,3 @@
-vim.pack.add({
-  "https://github.com/MunifTanjim/nui.nvim",
-  "https://github.com/bennypowers/nvim-regexplainer"
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd("BufRead", {
   callback = function()
     require('regexplainer').setup({

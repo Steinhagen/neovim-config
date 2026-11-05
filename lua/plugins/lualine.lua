@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/nvim-lualine/lualine.nvim',
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd('UIEnter', {
   once = true,
   callback = function()

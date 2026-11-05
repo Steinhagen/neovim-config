@@ -1,7 +1,3 @@
-vim.pack.add({
-  'https://github.com/lukas-reineke/indent-blankline.nvim',
-}, { confirm = false })
-
 vim.api.nvim_create_autocmd('BufReadPre', {
   once = true,
   callback = function()
