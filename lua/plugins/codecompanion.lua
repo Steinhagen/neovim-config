@@ -26,17 +26,58 @@ local function ensure_setup()
 
   require('codecompanion').setup {
     strategies = {
-      chat = { adapter = 'llama_cpp' },  -- 'gemini' / 'kiro' / 'opencode'
-      inline = { adapter = 'llama_cpp' },  -- 'deepseek'
+      -- Default chat is OpenCode on its free DeepSeek V4.1 Flash model. DSH is
+      -- one keymap away (<leader>aH) and can be made the default by swapping
+      -- this name back to 'dsh'. Override per invocation with
+      -- :CodeCompanionChat adapter=gemini (or dsh / llama_cpp / kiro).
+      chat = { adapter = 'opencode' },  -- 'opencode' / 'dsh' / 'llama_cpp' / 'gemini' / 'kiro'
+      -- inline stays on an HTTP adapter: CodeCompanion's inline-ACP driver
+      -- applies edits by diffing a temp copy of the buffer and only auto-approves
+      -- read/search/think/fetch/edit-of-that-copy tool calls. DSH reports every
+      -- tool as kind='other' with no locations or diffs, so inline would reject
+      -- each one and nothing would ever be edited.
+      -- inline = { adapter = 'gemini' },  -- 'llama_cpp' / 'deepseek' / 'gemini'
     },
 
     adapters = {
       acp = {
+        -- DeepSeek Harness speaks the Agent Client Protocol over stdio
+        -- (`dsh acp` == `dsh --profile acp`), so CodeCompanion can drive it as
+        -- a normal ACP agent. DSH owns tool execution and file writes itself,
+        -- so it does not use ACP's fs/terminal delegation: CodeCompanion is
+        -- just the chat surface, permission prompts come back as
+        -- session/request_permission, and edits are made by DSH's own tools.
+        dsh = function()
+          return require('codecompanion.adapters').extend('opencode', {
+            name = 'dsh',
+            formatted_name = 'DeepSeek Harness',
+            commands = {
+              default = { 'dsh', 'acp' },
+            },
+            -- session/new advertises image prompts as false for this profile.
+            opts = { vision = false },
+            defaults = {
+              timeout = 30000, -- handshake only; prompts stream without one
+              session_config_options = {
+                -- Resolved against the values/names advertised by session/new
+                -- configOptions; the /model picker lists the same set.
+                model = 'DeepSeek-V4-Pro',
+                -- DSH reports reasoning effort under the `thought_level`
+                -- category (off/low/high/max).
+                thought_level = 'high',
+              },
+            },
+          })
+        end,
+
         opencode = function()
           return require("codecompanion.adapters").extend("opencode", {
             defaults = {
               session_config_options = {
-                model = "deepseek/deepseek-v4-pro",
+                -- OpenCode's free tier. Gated to the OpenCode client (Zen's HTTP
+                -- API answers FreeUsageLimitError for anyone else), which is why
+                -- this model can only be reached through this adapter, not DSH.
+                model = "opencode/deepseek-v4.1-flash-free",
               },
             },
           })
@@ -151,3 +192,16 @@ map('v', mapping_key_prefix .. 'D', cc_cmd('CodeCompanion /doc'), { desc = 'Code
 map('v', mapping_key_prefix .. 'r', cc_cmd('CodeCompanion /refactor'), { desc = 'Code Companion - Refactor' })
 map('v', mapping_key_prefix .. 'R', cc_cmd('CodeCompanion /review'), { desc = 'Code Companion - Review' })
 map('v', mapping_key_prefix .. 'n', cc_cmd('CodeCompanion /naming'), { desc = 'Code Companion - Better naming' })
+
+-- DeepSeek Harness chat (ACP). Unlike the HTTP adapters, DSH runs its own
+-- tools: it reads and edits files in the working directory, so this window is
+-- only the conversation — no system prompt, no #buffer stuffing required.
+-- A visual selection becomes the chat's context (chat() reads the live visual
+-- range, which the `'<`/`'>` marks do not have yet inside a mapping).
+map({ 'n', 'v' }, mapping_key_prefix .. 'H', function()
+  ensure_setup()
+  if vim.fn.executable 'dsh' == 0 then
+    return vim.notify('dsh is not on PATH', vim.log.levels.ERROR)
+  end
+  require('codecompanion').chat { params = { adapter = 'dsh' } }
+end, { desc = 'Code Companion - DeepSeek Harness chat' })
