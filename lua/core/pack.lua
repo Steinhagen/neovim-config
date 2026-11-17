@@ -77,6 +77,8 @@ local plugins = {
 
   -- typst-preview
   'https://github.com/chomosuke/typst-preview.nvim',
+  -- PDF viewer for the in-editor Typst preview (needs `mutool` from mupdf)
+  'https://github.com/rohit746/pdf-view.nvim',
 
   -- lualine
   'https://github.com/nvim-lualine/lualine.nvim',

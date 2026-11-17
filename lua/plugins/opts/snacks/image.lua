@@ -3,7 +3,10 @@ return {
   img_dirs = { 'img', 'images', 'assets', 'static', 'public', 'media', 'attachments' },
   cache = vim.fn.stdpath 'cache' .. '/snacks/image',
   env = {},
-  formats = { 'png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'heic', 'avif', 'mp4', 'mov', 'avi', 'mkv', 'webm', 'pdf', 'icns' },
+  -- No 'pdf': pdf-view.nvim takes over *.pdf buffers, and two handlers on the
+  -- same file draw over each other. `convert.pdf` below still applies to PDFs
+  -- embedded in markdown/hover previews.
+  formats = { 'png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'heic', 'avif', 'mp4', 'mov', 'avi', 'mkv', 'webm', 'icns' },
   icons = { math = '󰪚 ', chart = '󰄧 ', image = ' ' },
   debug = { request = false, convert = false, placement = false },
   wo = {

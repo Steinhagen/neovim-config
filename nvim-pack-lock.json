@@ -136,6 +136,10 @@
       "rev": "ab3eb124062422d276fae49e0dd63b3ad1062cfc",
       "src": "https://github.com/kevinhwang91/nvim-ufo"
     },
+    "pdf-view.nvim": {
+      "rev": "7b3286482256994f425bc4aa6cc074e76f6f9dde",
+      "src": "https://github.com/rohit746/pdf-view.nvim"
+    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
